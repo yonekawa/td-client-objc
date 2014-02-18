@@ -9,6 +9,9 @@ Pod::Spec.new do |s|
   s.source_files = 'TreasureData/**/*.{h,m}'
   s.requires_arc = true
 
+  s.ios.deployment_target = '6.0'
+  s.osx.deployment_target = '10.7'
+
   s.dependency 'AFNetworking',         '2.1.0'
   s.dependency 'ReactiveCocoa',        '2.2.3'
   s.dependency 'ISO8601DateFormatter', '0.7'
