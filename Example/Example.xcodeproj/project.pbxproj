@@ -22,6 +22,8 @@
 		A4785B4018B362C000B77BFE /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4785B3918B362C000B77BFE /* Main_iPad.storyboard */; };
 		A4785B4118B362C000B77BFE /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4785B3B18B362C000B77BFE /* Main_iPhone.storyboard */; };
 		A4785B4218B362C000B77BFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4785B3D18B362C000B77BFE /* Images.xcassets */; };
+		CA4DE4BA18B3A962001D1E9E /* DatabaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4B918B3A962001D1E9E /* DatabaseListViewController.m */; };
+		CA4DE4BD18B3AAC9001D1E9E /* TRDClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4BC18B3AAC9001D1E9E /* TRDClientManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		A4785B3A18B362C000B77BFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		A4785B3C18B362C000B77BFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		A4785B3D18B362C000B77BFE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CA4DE4B818B3A962001D1E9E /* DatabaseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseListViewController.h; sourceTree = "<group>"; };
+		CA4DE4B918B3A962001D1E9E /* DatabaseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseListViewController.m; sourceTree = "<group>"; };
+		CA4DE4BB18B3AAC9001D1E9E /* TRDClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRDClientManager.h; sourceTree = "<group>"; };
+		CA4DE4BC18B3AAC9001D1E9E /* TRDClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDClientManager.m; sourceTree = "<group>"; };
 		EABCFA2301B247BCA0AEDC4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,6 +166,10 @@
 				A4785B3518B362C000B77BFE /* AppDelegate.m */,
 				A4785B3618B362C000B77BFE /* LoginViewController.h */,
 				A4785B3718B362C000B77BFE /* LoginViewController.m */,
+				CA4DE4B818B3A962001D1E9E /* DatabaseListViewController.h */,
+				CA4DE4B918B3A962001D1E9E /* DatabaseListViewController.m */,
+				CA4DE4BB18B3AAC9001D1E9E /* TRDClientManager.h */,
+				CA4DE4BC18B3AAC9001D1E9E /* TRDClientManager.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -309,6 +319,8 @@
 				A4785B3F18B362C000B77BFE /* LoginViewController.m in Sources */,
 				A4785B3E18B362C000B77BFE /* AppDelegate.m in Sources */,
 				A466AC0E18B3189000FB89B8 /* main.m in Sources */,
+				CA4DE4BA18B3A962001D1E9E /* DatabaseListViewController.m in Sources */,
+				CA4DE4BD18B3AAC9001D1E9E /* TRDClientManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

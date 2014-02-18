@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <TreasureData/TreasureData.h>
+#import "TRDClientManager.h"
 
 @interface LoginViewController ()
 @property(nonatomic, strong) IBOutlet UITextField *emailFiedld;
@@ -30,17 +31,18 @@
     [loginCommand.executionSignals subscribeNext:^(RACSignal *loginSignal) {
         RACSignal *signal = [loginSignal dematerialize];
         [signal subscribeNext:^(TRDClient *client) {
-            NSLog(@"Logged In");
+            [TRDClientManager sharedManager].client = client;
+            UINavigationController *mainViewController =
+                [self.storyboard instantiateViewControllerWithIdentifier:@"MainScene"];
+            [self presentViewController:mainViewController animated:YES completion:nil];
         } error:^(NSError *error) {
-            NSLog(@"%@", error);
-        } completed:^{
-            NSLog(@"Completed");
+            [[[UIAlertView alloc] initWithTitle:@"Error"
+                                       message:error.description
+                                      delegate:nil
+                             cancelButtonTitle:@"OK"
+                             otherButtonTitles:nil] show];
         }];
     }];
-    [loginCommand.errors subscribeNext:^(NSError *error) {
-        NSLog(@"%@", error);
-    }];
-
     self.loginButton.rac_command = loginCommand;
 }
 

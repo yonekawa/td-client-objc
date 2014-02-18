@@ -8,6 +8,7 @@
 
 #import "TRDClient.h"
 #import <AFNetworking/AFNetworking.h>
+#import <Mantle/EXTScope.h>
 #import "TRDDatabase.h"
 
 static NSString *const TRDBaseURLString = @"https://api.treasure-data.com/";
@@ -58,10 +59,11 @@ static NSString *const TRDBaseURLString = @"https://api.treasure-data.com/";
 
 - (RACSignal *)fetchDatabases
 {
-    __weak typeof(self) wSelf = self;
+    @weakify(self);
     RACSignal *signal = [RACSignal createSignal:^(id<RACSubscriber> subscriber) {
+        @strongify(self);
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:TRDBaseURLString]];
-        [manager.requestSerializer setValue:[NSString stringWithFormat:@"TD1 %@", wSelf.apiKey.value] forHTTPHeaderField:@"AUTHORIZATION"];
+        [manager.requestSerializer setValue:[NSString stringWithFormat:@"TD1 %@", self.apiKey.value] forHTTPHeaderField:@"AUTHORIZATION"];
         AFHTTPRequestOperation *operation = [manager GET:@"/v3/database/list" parameters:nil
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               NSArray *databases = responseObject[@"databases"];

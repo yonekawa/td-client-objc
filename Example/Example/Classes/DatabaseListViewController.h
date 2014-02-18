@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  DatabaseListViewController.h
 //  Example
 //
 //  Created by Kenichi Yonekawa on 2014/02/18.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (nonatomic, strong) UIWindow *window;
+@interface DatabaseListViewController : UIViewController
+    <UITableViewDelegate, UITableViewDataSource>
 
 @end
