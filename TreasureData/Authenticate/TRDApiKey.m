@@ -12,7 +12,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
-    return @{@"apiKey": @"apikey"};
+    return @{@"value": @"apikey"};
 }
 
 @end

@@ -9,5 +9,5 @@
 #import "MTLModel.h"
 
 @interface TRDApiKey : MTLModel <MTLJSONSerializing>
-@property(strong) NSString *apiKey;
+@property(readonly) NSString *value;
 @end

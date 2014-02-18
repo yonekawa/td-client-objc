@@ -9,7 +9,8 @@ Pod::Spec.new do |s|
   s.source_files = 'TreasureData/**/*.{h,m}'
   s.requires_arc = true
 
-  s.dependency 'AFNetworking',  '2.1.0'
-  s.dependency 'Mantle',        '1.3.1'
-  s.dependency 'ReactiveCocoa', '2.2.3'
+  s.dependency 'AFNetworking',         '2.1.0'
+  s.dependency 'ReactiveCocoa',        '2.2.3'
+  s.dependency 'ISO8601DateFormatter', '0.7'
+  s.dependency 'Mantle',               '1.3.1'
 end

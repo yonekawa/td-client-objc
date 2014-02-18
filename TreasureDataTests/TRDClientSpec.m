@@ -8,6 +8,7 @@
 
 #import "TRDClient.h"
 #import "TRDApiKey.h"
+#import "TRDDatabase.h"
 
 SpecBegin(TRDClient)
 
@@ -28,16 +29,6 @@ void (^stubResponse)(NSString *, NSString *) = ^(NSString *path, NSString *respo
 	stubResponseWithHeaders(path, responseFilename, @{});
 };
 
-/*
-void (^stubResponseWithStatusCode)(NSString *, int) = ^(NSString *path, int statusCode) {
-    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-        return [request.URL.path isEqual:path];
-    } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithData:[NSData data] statusCode:statusCode headers:nil];
-    }];
-};
-*/
-
 __block BOOL success;
 __block NSError *error;
 
@@ -50,13 +41,32 @@ describe(@"authenticate", ^{
     it(@"should return an api key object", ^{
         stubResponse(@"/v3/user/authenticate", @"authenticate.json");
         RACSignal *result = [TRDClient authenticateWithUsername:@"user" password:@"password"];
-        TRDApiKey *response = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+        TRDClient *client = [result asynchronousFirstOrDefault:nil success:&success error:&error];
 
-        expect(response).notTo.beNil();
+        expect(client).notTo.beNil();
 		expect(success).to.beTruthy();
 		expect(error).to.beNil();
 
-        expect(response.apiKey).to.equal(@"e72e16c7e42f292c6912e7710c838347ae178b4a");
+        expect(client.apiKey.value).to.equal(@"e72e16c7e42f292c6912e7710c838347ae178b4a");
+    });
+});
+
+describe(@"database", ^{
+    it(@"should return database list", ^{
+        stubResponse(@"/v3/user/authenticate", @"authenticate.json");
+        TRDApiKey *key = [MTLJSONAdapter modelOfClass:[TRDApiKey class] fromJSONDictionary:@{@"apikey": @"6d4156815103370f2e09fa76bc505ef857b4d947"} error:NULL];
+        TRDClient *client = [[TRDClient alloc] initWithApiKey:key];
+
+        stubResponse(@"/v3/database/list", @"database_list.json");
+        RACSignal *result = [[client fetchDatabases] collect];
+        NSArray *databases = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+        expect(databases).notTo.beNil();
+		expect(success).to.beTruthy();
+		expect(error).to.beNil();
+
+        expect([databases count]).to.equal(2);
+        expect(((TRDDatabase *)databases[0]).name).to.equal(@"database1");
+        expect(((TRDDatabase *)databases[1]).name).to.equal(@"database2");
     });
 });
 

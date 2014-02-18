@@ -20,7 +20,7 @@ beforeEach(^{
 });
 
 it(@"should initialize", ^{
-    expect(apiKey.apiKey).to.equal(@"e72e16c7e42f292c6912e7710c838347ae178b4a");
+    expect(apiKey.value).to.equal(@"e72e16c7e42f292c6912e7710c838347ae178b4a");
 });
 
 SpecEnd
