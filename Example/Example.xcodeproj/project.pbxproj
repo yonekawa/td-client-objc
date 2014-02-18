@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0991037309BC4606AF6AAB34 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EABCFA2301B247BCA0AEDC4E /* libPods.a */; };
 		A466AC0218B3189000FB89B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A466AC0118B3189000FB89B8 /* Foundation.framework */; };
 		A466AC0418B3189000FB89B8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A466AC0318B3189000FB89B8 /* CoreGraphics.framework */; };
 		A466AC0618B3189000FB89B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A466AC0518B3189000FB89B8 /* UIKit.framework */; };
-		A466AC0C18B3189000FB89B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A466AC0A18B3189000FB89B8 /* InfoPlist.strings */; };
 		A466AC0E18B3189000FB89B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A466AC0D18B3189000FB89B8 /* main.m */; };
-		A466AC1218B3189000FB89B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A466AC1118B3189000FB89B8 /* AppDelegate.m */; };
-		A466AC1518B3189000FB89B8 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A466AC1318B3189000FB89B8 /* Main_iPhone.storyboard */; };
-		A466AC1818B3189000FB89B8 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A466AC1618B3189000FB89B8 /* Main_iPad.storyboard */; };
-		A466AC1B18B3189000FB89B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A466AC1A18B3189000FB89B8 /* ViewController.m */; };
-		A466AC1D18B3189000FB89B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A466AC1C18B3189000FB89B8 /* Images.xcassets */; };
 		A466AC2418B3189000FB89B8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A466AC2318B3189000FB89B8 /* XCTest.framework */; };
 		A466AC2518B3189000FB89B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A466AC0118B3189000FB89B8 /* Foundation.framework */; };
 		A466AC2618B3189000FB89B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A466AC0518B3189000FB89B8 /* UIKit.framework */; };
 		A466AC2E18B3189000FB89B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A466AC2C18B3189000FB89B8 /* InfoPlist.strings */; };
 		A466AC3018B3189000FB89B8 /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A466AC2F18B3189000FB89B8 /* ExampleTests.m */; };
+		A4785B3E18B362C000B77BFE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4785B3518B362C000B77BFE /* AppDelegate.m */; };
+		A4785B3F18B362C000B77BFE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4785B3718B362C000B77BFE /* LoginViewController.m */; };
+		A4785B4018B362C000B77BFE /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4785B3918B362C000B77BFE /* Main_iPad.storyboard */; };
+		A4785B4118B362C000B77BFE /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4785B3B18B362C000B77BFE /* Main_iPhone.storyboard */; };
+		A4785B4218B362C000B77BFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4785B3D18B362C000B77BFE /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,26 +35,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		78449DA1B6B94D9DA1468E3D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A466ABFE18B3189000FB89B8 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A466AC0118B3189000FB89B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A466AC0318B3189000FB89B8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A466AC0518B3189000FB89B8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A466AC0918B3189000FB89B8 /* Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Example-Info.plist"; sourceTree = "<group>"; };
-		A466AC0B18B3189000FB89B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A466AC0D18B3189000FB89B8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A466AC0F18B3189000FB89B8 /* Example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Prefix.pch"; sourceTree = "<group>"; };
-		A466AC1018B3189000FB89B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A466AC1118B3189000FB89B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A466AC1418B3189000FB89B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		A466AC1718B3189000FB89B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		A466AC1918B3189000FB89B8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A466AC1A18B3189000FB89B8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A466AC1C18B3189000FB89B8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A466AC2218B3189000FB89B8 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A466AC2318B3189000FB89B8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A466AC2B18B3189000FB89B8 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		A466AC2D18B3189000FB89B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A466AC2F18B3189000FB89B8 /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
+		A4785B3418B362C000B77BFE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A4785B3518B362C000B77BFE /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A4785B3618B362C000B77BFE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A4785B3718B362C000B77BFE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A4785B3A18B362C000B77BFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		A4785B3C18B362C000B77BFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		A4785B3D18B362C000B77BFE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EABCFA2301B247BCA0AEDC4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +66,7 @@
 				A466AC0418B3189000FB89B8 /* CoreGraphics.framework in Frameworks */,
 				A466AC0618B3189000FB89B8 /* UIKit.framework in Frameworks */,
 				A466AC0218B3189000FB89B8 /* Foundation.framework in Frameworks */,
+				0991037309BC4606AF6AAB34 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +90,7 @@
 				A466AC2918B3189000FB89B8 /* ExampleTests */,
 				A466AC0018B3189000FB89B8 /* Frameworks */,
 				A466ABFF18B3189000FB89B8 /* Products */,
+				78449DA1B6B94D9DA1468E3D /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +110,7 @@
 				A466AC0318B3189000FB89B8 /* CoreGraphics.framework */,
 				A466AC0518B3189000FB89B8 /* UIKit.framework */,
 				A466AC2318B3189000FB89B8 /* XCTest.framework */,
+				EABCFA2301B247BCA0AEDC4E /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,13 +118,8 @@
 		A466AC0718B3189000FB89B8 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				A466AC1018B3189000FB89B8 /* AppDelegate.h */,
-				A466AC1118B3189000FB89B8 /* AppDelegate.m */,
-				A466AC1318B3189000FB89B8 /* Main_iPhone.storyboard */,
-				A466AC1618B3189000FB89B8 /* Main_iPad.storyboard */,
-				A466AC1918B3189000FB89B8 /* ViewController.h */,
-				A466AC1A18B3189000FB89B8 /* ViewController.m */,
-				A466AC1C18B3189000FB89B8 /* Images.xcassets */,
+				A4785B3318B362C000B77BFE /* Classes */,
+				A4785B3818B362C000B77BFE /* Resources */,
 				A466AC0818B3189000FB89B8 /* Supporting Files */,
 			);
 			path = Example;
@@ -129,9 +128,8 @@
 		A466AC0818B3189000FB89B8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A466AC0918B3189000FB89B8 /* Example-Info.plist */,
-				A466AC0A18B3189000FB89B8 /* InfoPlist.strings */,
 				A466AC0D18B3189000FB89B8 /* main.m */,
+				A466AC0918B3189000FB89B8 /* Example-Info.plist */,
 				A466AC0F18B3189000FB89B8 /* Example-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -155,6 +153,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A4785B3318B362C000B77BFE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A4785B3418B362C000B77BFE /* AppDelegate.h */,
+				A4785B3518B362C000B77BFE /* AppDelegate.m */,
+				A4785B3618B362C000B77BFE /* LoginViewController.h */,
+				A4785B3718B362C000B77BFE /* LoginViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A4785B3818B362C000B77BFE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A4785B3918B362C000B77BFE /* Main_iPad.storyboard */,
+				A4785B3B18B362C000B77BFE /* Main_iPhone.storyboard */,
+				A4785B3D18B362C000B77BFE /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A466AC3318B3189000FB89B8 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
+				7167823593944BDFA3939F71 /* Check Pods Manifest.lock */,
 				A466ABFA18B3189000FB89B8 /* Sources */,
 				A466ABFB18B3189000FB89B8 /* Frameworks */,
 				A466ABFC18B3189000FB89B8 /* Resources */,
+				3148EC92292B42F7A0FF8E6D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,10 +252,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A466AC1818B3189000FB89B8 /* Main_iPad.storyboard in Resources */,
-				A466AC1D18B3189000FB89B8 /* Images.xcassets in Resources */,
-				A466AC1518B3189000FB89B8 /* Main_iPhone.storyboard in Resources */,
-				A466AC0C18B3189000FB89B8 /* InfoPlist.strings in Resources */,
+				A4785B4218B362C000B77BFE /* Images.xcassets in Resources */,
+				A4785B4118B362C000B77BFE /* Main_iPhone.storyboard in Resources */,
+				A4785B4018B362C000B77BFE /* Main_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,13 +268,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3148EC92292B42F7A0FF8E6D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7167823593944BDFA3939F71 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A466ABFA18B3189000FB89B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A466AC1B18B3189000FB89B8 /* ViewController.m in Sources */,
-				A466AC1218B3189000FB89B8 /* AppDelegate.m in Sources */,
+				A4785B3F18B362C000B77BFE /* LoginViewController.m in Sources */,
+				A4785B3E18B362C000B77BFE /* AppDelegate.m in Sources */,
 				A466AC0E18B3189000FB89B8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,36 +331,28 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A466AC0A18B3189000FB89B8 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A466AC0B18B3189000FB89B8 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A466AC1318B3189000FB89B8 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A466AC1418B3189000FB89B8 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		A466AC1618B3189000FB89B8 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A466AC1718B3189000FB89B8 /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		A466AC2C18B3189000FB89B8 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A466AC2D18B3189000FB89B8 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A4785B3918B362C000B77BFE /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4785B3A18B362C000B77BFE /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		A4785B3B18B362C000B77BFE /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4785B3C18B362C000B77BFE /* Base */,
+			);
+			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -389,6 +434,7 @@
 		};
 		A466AC3418B3189000FB89B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78449DA1B6B94D9DA1468E3D /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -402,6 +448,7 @@
 		};
 		A466AC3518B3189000FB89B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78449DA1B6B94D9DA1468E3D /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -474,6 +521,7 @@
 				A466AC3518B3189000FB89B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A466AC3618B3189000FB89B8 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +530,7 @@
 				A466AC3818B3189000FB89B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

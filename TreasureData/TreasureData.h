@@ -7,3 +7,5 @@
 //
 
 #import <TreasureData/TRDClient.h>
+#import <TreasureData/TRDApiKey.h>
+#import <TreasureData/TRDDatabase.h>

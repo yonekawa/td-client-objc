@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 MogMog Developer. All rights reserved.
 //
 
-#import "MTLModel.h"
+#import <Mantle/Mantle.h>
 
 @interface TRDDatabase : MTLModel <MTLJSONSerializing>
 @property(readonly) NSUInteger count;

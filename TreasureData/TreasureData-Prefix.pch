@@ -6,7 +6,4 @@
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
-    #import <Mantle/Mantle.h>
-    #import <ReactiveCocoa/ReactiveCocoa.h>
-    #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 #endif
