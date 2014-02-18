@@ -1,18 +1,18 @@
 //
-//  TreasureDataTests.m
-//  TreasureDataTests
+//  ExampleTests.m
+//  ExampleTests
 //
-//  Created by Kenichi Yonekawa on 2014/02/18.
-//  Copyright (c) 2014 MogMog Developer. All rights reserved.
+//  Created by kenichi-yonekawa on 2014/02/18.
+//  Copyright (c) 2014年 MogMog Developer. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface TreasureDataTests : XCTestCase
+@interface ExampleTests : XCTestCase
 
 @end
 
-@implementation TreasureDataTests
+@implementation ExampleTests
 
 - (void)setUp
 {

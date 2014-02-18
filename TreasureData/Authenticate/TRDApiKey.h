@@ -1,9 +1,13 @@
 //
-//  TreasureData.h
+//  TRDApiKey.h
 //  TreasureData
 //
 //  Created by Kenichi Yonekawa on 2014/02/18.
 //  Copyright (c) 2014 MogMog Developer. All rights reserved.
 //
 
-#import <TreasureData/TRDClient.h>
+#import "MTLModel.h"
+
+@interface TRDApiKey : MTLModel <MTLJSONSerializing>
+@property(strong) NSString *apiKey;
+@end
