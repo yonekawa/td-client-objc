@@ -31,6 +31,7 @@ static NSString *const TRDBaseURLString = @"https://api.treasure-data.com/";
               } else {
                   TRDClient *client = [[TRDClient alloc] initWithApiKey:apiKey];
                   [subscriber sendNext:client];
+                  [subscriber sendCompleted];
               }
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -25,13 +25,22 @@
 
     __weak typeof(self) wSelf = self;
     RACCommand *loginCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        return [TRDClient authenticateWithUsername:wSelf.emailFiedld.text password:wSelf.passwordFiedld.text];
+        return [[TRDClient authenticateWithUsername:wSelf.emailFiedld.text password:wSelf.passwordFiedld.text] materialize];
     }];
     [loginCommand.executionSignals subscribeNext:^(RACSignal *loginSignal) {
-        [loginSignal subscribeCompleted:^{
-            NSLog(@"Logged In.");
+        RACSignal *signal = [loginSignal dematerialize];
+        [signal subscribeNext:^(TRDClient *client) {
+            NSLog(@"Logged In");
+        } error:^(NSError *error) {
+            NSLog(@"%@", error);
+        } completed:^{
+            NSLog(@"Completed");
         }];
     }];
+    [loginCommand.errors subscribeNext:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+
     self.loginButton.rac_command = loginCommand;
 }
 
