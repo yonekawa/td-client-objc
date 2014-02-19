@@ -8,11 +8,24 @@
 
 #import "TRDApiKey.h"
 
+@interface TRDApiKey()
+@property(strong) NSString *value;
+@end
+
 @implementation TRDApiKey
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{@"value": @"apikey"};
+}
+
+- (id)initWithValue:(NSString *)value
+{
+    self = [super init];
+    if (self) {
+        self.value = value;
+    }
+    return self;
 }
 
 @end

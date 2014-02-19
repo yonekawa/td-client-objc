@@ -164,12 +164,12 @@
 			children = (
 				A4785B3418B362C000B77BFE /* AppDelegate.h */,
 				A4785B3518B362C000B77BFE /* AppDelegate.m */,
+				CA4DE4BB18B3AAC9001D1E9E /* TRDClientManager.h */,
+				CA4DE4BC18B3AAC9001D1E9E /* TRDClientManager.m */,
 				A4785B3618B362C000B77BFE /* LoginViewController.h */,
 				A4785B3718B362C000B77BFE /* LoginViewController.m */,
 				CA4DE4B818B3A962001D1E9E /* DatabaseListViewController.h */,
 				CA4DE4B918B3A962001D1E9E /* DatabaseListViewController.m */,
-				CA4DE4BB18B3AAC9001D1E9E /* TRDClientManager.h */,
-				CA4DE4BC18B3AAC9001D1E9E /* TRDClientManager.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

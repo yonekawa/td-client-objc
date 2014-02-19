@@ -10,4 +10,5 @@
 
 @interface TRDApiKey : MTLModel <MTLJSONSerializing>
 @property(readonly) NSString *value;
+- (id)initWithValue:(NSString *)value;
 @end

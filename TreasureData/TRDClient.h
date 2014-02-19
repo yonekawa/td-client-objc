@@ -8,11 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <AFNetworking/AFNetworking.h>
 #import "TRDApiKey.h"
 
-@interface TRDClient : NSObject
+@interface TRDClient : AFHTTPRequestOperationManager
 @property(readonly) TRDApiKey *apiKey;
 + (RACSignal *)authenticateWithUsername:(NSString *)username password:(NSString *)password;
 - (id)initWithApiKey:(TRDApiKey *)apiKey;
 - (RACSignal *)fetchDatabases;
+
+- (NSMutableURLRequest *)requestWithMethod:(NSString *)method
+                                      path:(NSString *)path
+                                parameters:(NSDictionary *)parameters
+                            withAuthHeader:(BOOL)withAuthHeader;
 @end
