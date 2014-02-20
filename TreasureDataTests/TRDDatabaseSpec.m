@@ -1,5 +1,5 @@
 //
-//  TRDDatabase.m
+//  TRDDatabaseSpec.m
 //  TreasureData
 //
 //  Created by Kenichi Yonekawa on 2014/02/18.

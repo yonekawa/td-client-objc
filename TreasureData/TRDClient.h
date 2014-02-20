@@ -12,13 +12,11 @@
 #import "TRDApiKey.h"
 
 @interface TRDClient : AFHTTPRequestOperationManager
-@property(readonly) TRDApiKey *apiKey;
-+ (RACSignal *)authenticateWithUsername:(NSString *)username password:(NSString *)password;
 - (id)initWithApiKey:(TRDApiKey *)apiKey;
-- (RACSignal *)fetchDatabases;
-
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                       path:(NSString *)path
                                 parameters:(NSDictionary *)parameters
                             withAuthHeader:(BOOL)withAuthHeader;
+- (RACSignal *)enqueueRequest:(NSURLRequest *)request
+             parseResultBlock:(void (^)(id<RACSubscriber> subscriber, id responseObject))parseResultBlock;
 @end

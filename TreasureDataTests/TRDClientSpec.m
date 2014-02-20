@@ -7,6 +7,8 @@
 //
 
 #import "TRDClient.h"
+#import "TRDClient+Authenticate.h"
+#import "TRDClient+Database.h"
 #import "TRDApiKey.h"
 #import "TRDDatabase.h"
 
