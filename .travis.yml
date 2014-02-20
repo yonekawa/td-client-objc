@@ -1,8 +1,9 @@
 language: objective-c
 
 before_install:
+ - brew update
+ - brew upgrade xctool # xctool 0.1.13(Installed in Travis-CI) can't run Specta test
  - gem install cocoapods -r
  - pod setup
 
-before_script: travis/before_script.sh
-script: travis/script.sh
+script: xctool build test

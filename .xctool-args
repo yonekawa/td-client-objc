@@ -1,0 +1,6 @@
+[
+  "-workspace", "TreasureData.xcworkspace",
+  "-scheme", "TreasureData",
+  "-sdk", "iphonesimulator",
+  "-arch", "i386"
+]
