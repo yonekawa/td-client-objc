@@ -1,4 +1,3 @@
-td-client-objc
-==============
+# Treasure Data Client for Objective-C
 
-Objective-C Client Library for Treasure Data
+[![Build Status](https://travis-ci.org/yonekawa/td-client-objc.png?branch=master)](https://travis-ci.org/yonekawa/td-client-objc)
