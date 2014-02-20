@@ -10,7 +10,6 @@
 		A455F81118B34242000B845F /* TRDApiKeySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A455F81018B34242000B845F /* TRDApiKeySpec.m */; };
 		A455F81C18B34913000B845F /* TRDDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A455F81B18B34913000B845F /* TRDDatabase.m */; };
 		A455F81E18B35347000B845F /* database_list.json in Resources */ = {isa = PBXBuildFile; fileRef = A455F81D18B35347000B845F /* database_list.json */; };
-		A455F82318B35392000B845F /* TRDDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A455F82218B35392000B845F /* TRDDatabase.m */; };
 		A466ABDF18B305F200FB89B8 /* TRDClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A466ABDE18B305F200FB89B8 /* TRDClient.m */; };
 		A466AC4B18B31D0B00FB89B8 /* TRDApiKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A466AC4A18B31D0B00FB89B8 /* TRDApiKey.m */; };
 		A466AC4D18B3287E00FB89B8 /* TRDClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A466AC4C18B3287E00FB89B8 /* TRDClientSpec.m */; };
@@ -22,6 +21,13 @@
 		A4A4D1E718B2FE230067FA70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A4D1E618B2FE230067FA70 /* UIKit.framework */; };
 		A4A4D1EA18B2FE230067FA70 /* libTreasureData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A4D1D218B2FE230067FA70 /* libTreasureData.a */; };
 		A4A4D1F018B2FE230067FA70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4A4D1EE18B2FE230067FA70 /* InfoPlist.strings */; };
+		CA4DE4CA18B62EF2001D1E9E /* TRDClient+Authenticate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4C918B62EF2001D1E9E /* TRDClient+Authenticate.m */; };
+		CA4DE4CD18B62F01001D1E9E /* TRDClient+Database.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4CC18B62F01001D1E9E /* TRDClient+Database.m */; };
+		CA4DE4D318B62F0E001D1E9E /* TRDClient+Job.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4D018B62F0E001D1E9E /* TRDClient+Job.m */; };
+		CA4DE4D418B62F0E001D1E9E /* TRDJob.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4D218B62F0E001D1E9E /* TRDJob.m */; };
+		CA4DE4D618B62F45001D1E9E /* TRDJobSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4D518B62F45001D1E9E /* TRDJobSpec.m */; };
+		CA4DE4D818B62F4C001D1E9E /* TRDDatabaseSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4D718B62F4C001D1E9E /* TRDDatabaseSpec.m */; };
+		CA4DE4DA18B62F80001D1E9E /* job_list.json in Resources */ = {isa = PBXBuildFile; fileRef = CA4DE4D918B62F80001D1E9E /* job_list.json */; };
 		D8EB7192D7B34CD4BA068AC0 /* libPods-TreasureDataTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA760CA9686B421C80B29C5F /* libPods-TreasureDataTests.a */; };
 		EA3F5A3A30BB48F99A0C0AEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97327B302C06407986E6E65E /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -57,7 +63,6 @@
 		A455F81A18B34913000B845F /* TRDDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRDDatabase.h; sourceTree = "<group>"; };
 		A455F81B18B34913000B845F /* TRDDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDDatabase.m; sourceTree = "<group>"; };
 		A455F81D18B35347000B845F /* database_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = database_list.json; sourceTree = "<group>"; };
-		A455F82218B35392000B845F /* TRDDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDDatabase.m; sourceTree = "<group>"; };
 		A466ABDC18B305B200FB89B8 /* TreasureDataTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TreasureDataTests-Prefix.pch"; sourceTree = "<group>"; };
 		A466ABDD18B305F200FB89B8 /* TRDClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRDClient.h; sourceTree = "<group>"; };
 		A466ABDE18B305F200FB89B8 /* TRDClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDClient.m; sourceTree = "<group>"; };
@@ -74,6 +79,17 @@
 		A4A4D1E618B2FE230067FA70 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		A4A4D1ED18B2FE230067FA70 /* TreasureDataTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TreasureDataTests-Info.plist"; sourceTree = "<group>"; };
 		A4A4D1EF18B2FE230067FA70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CA4DE4C818B62EF2001D1E9E /* TRDClient+Authenticate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TRDClient+Authenticate.h"; sourceTree = "<group>"; };
+		CA4DE4C918B62EF2001D1E9E /* TRDClient+Authenticate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TRDClient+Authenticate.m"; sourceTree = "<group>"; };
+		CA4DE4CB18B62F01001D1E9E /* TRDClient+Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TRDClient+Database.h"; sourceTree = "<group>"; };
+		CA4DE4CC18B62F01001D1E9E /* TRDClient+Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TRDClient+Database.m"; sourceTree = "<group>"; };
+		CA4DE4CF18B62F0E001D1E9E /* TRDClient+Job.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TRDClient+Job.h"; sourceTree = "<group>"; };
+		CA4DE4D018B62F0E001D1E9E /* TRDClient+Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TRDClient+Job.m"; sourceTree = "<group>"; };
+		CA4DE4D118B62F0E001D1E9E /* TRDJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRDJob.h; sourceTree = "<group>"; };
+		CA4DE4D218B62F0E001D1E9E /* TRDJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDJob.m; sourceTree = "<group>"; };
+		CA4DE4D518B62F45001D1E9E /* TRDJobSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDJobSpec.m; sourceTree = "<group>"; };
+		CA4DE4D718B62F4C001D1E9E /* TRDDatabaseSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDDatabaseSpec.m; sourceTree = "<group>"; };
+		CA4DE4D918B62F80001D1E9E /* job_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = job_list.json; sourceTree = "<group>"; };
 		EA760CA9686B421C80B29C5F /* libPods-TreasureDataTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TreasureDataTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,6 +123,8 @@
 			children = (
 				A455F81A18B34913000B845F /* TRDDatabase.h */,
 				A455F81B18B34913000B845F /* TRDDatabase.m */,
+				CA4DE4CB18B62F01001D1E9E /* TRDClient+Database.h */,
+				CA4DE4CC18B62F01001D1E9E /* TRDClient+Database.m */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -118,6 +136,7 @@
 				A466ABDE18B305F200FB89B8 /* TRDClient.m */,
 				A466AC4818B31CBA00FB89B8 /* Authenticate */,
 				A455F81918B34913000B845F /* Database */,
+				CA4DE4CE18B62F0E001D1E9E /* Job */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -127,6 +146,8 @@
 			children = (
 				A466AC4918B31D0B00FB89B8 /* TRDApiKey.h */,
 				A466AC4A18B31D0B00FB89B8 /* TRDApiKey.m */,
+				CA4DE4C818B62EF2001D1E9E /* TRDClient+Authenticate.h */,
+				CA4DE4C918B62EF2001D1E9E /* TRDClient+Authenticate.m */,
 			);
 			path = Authenticate;
 			sourceTree = "<group>";
@@ -134,6 +155,7 @@
 		A466AC4E18B329A400FB89B8 /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
+				CA4DE4D918B62F80001D1E9E /* job_list.json */,
 				A466AC4F18B329A400FB89B8 /* authenticate.json */,
 				A455F81D18B35347000B845F /* database_list.json */,
 			);
@@ -196,7 +218,8 @@
 			children = (
 				A466AC4C18B3287E00FB89B8 /* TRDClientSpec.m */,
 				A455F81018B34242000B845F /* TRDApiKeySpec.m */,
-				A455F82218B35392000B845F /* TRDDatabase.m */,
+				CA4DE4D718B62F4C001D1E9E /* TRDDatabaseSpec.m */,
+				CA4DE4D518B62F45001D1E9E /* TRDJobSpec.m */,
 				A4A4D1EC18B2FE230067FA70 /* Supporting Files */,
 			);
 			path = TreasureDataTests;
@@ -211,6 +234,17 @@
 				A466ABDC18B305B200FB89B8 /* TreasureDataTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CA4DE4CE18B62F0E001D1E9E /* Job */ = {
+			isa = PBXGroup;
+			children = (
+				CA4DE4D118B62F0E001D1E9E /* TRDJob.h */,
+				CA4DE4D218B62F0E001D1E9E /* TRDJob.m */,
+				CA4DE4CF18B62F0E001D1E9E /* TRDClient+Job.h */,
+				CA4DE4D018B62F0E001D1E9E /* TRDClient+Job.m */,
+			);
+			path = Job;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +324,7 @@
 				A466AC5018B329A400FB89B8 /* authenticate.json in Resources */,
 				A455F81E18B35347000B845F /* database_list.json in Resources */,
 				A4A4D1F018B2FE230067FA70 /* InfoPlist.strings in Resources */,
+				CA4DE4DA18B62F80001D1E9E /* job_list.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +400,11 @@
 			files = (
 				A466AC4B18B31D0B00FB89B8 /* TRDApiKey.m in Sources */,
 				A455F81C18B34913000B845F /* TRDDatabase.m in Sources */,
+				CA4DE4CA18B62EF2001D1E9E /* TRDClient+Authenticate.m in Sources */,
+				CA4DE4D418B62F0E001D1E9E /* TRDJob.m in Sources */,
+				CA4DE4CD18B62F01001D1E9E /* TRDClient+Database.m in Sources */,
 				A466ABDF18B305F200FB89B8 /* TRDClient.m in Sources */,
+				CA4DE4D318B62F0E001D1E9E /* TRDClient+Job.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,9 +412,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4DE4D818B62F4C001D1E9E /* TRDDatabaseSpec.m in Sources */,
 				A455F81118B34242000B845F /* TRDApiKeySpec.m in Sources */,
-				A455F82318B35392000B845F /* TRDDatabase.m in Sources */,
 				A466AC4D18B3287E00FB89B8 /* TRDClientSpec.m in Sources */,
+				CA4DE4D618B62F45001D1E9E /* TRDJobSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
