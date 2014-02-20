@@ -1,9 +1,15 @@
 language: objective-c
 
 before_install:
+ - sudo easy_install cpp-coveralls
  - brew update
- - brew upgrade xctool # xctool 0.1.13(Installed in Travis-CI) can't run Specta test
+ - brew uninstall xctool
+ - brew install xctool # xctool 0.1.13(Installed in Travis-CI) can't run Specta test
  - gem install cocoapods -r
  - pod setup
 
-script: xctool build test
+script: xctool test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+
+after_success:
+  coveralls -e Pods -e TreasureDataTests -e Example
+
