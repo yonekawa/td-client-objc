@@ -23,7 +23,7 @@
     [super viewDidLoad];
 
     @weakify(self);
-    [[[[TRDClientManager sharedManager].client fetchDatabases] collect] subscribeNext:^(NSArray *databases) {
+    [[[[TRDClientManager sharedManager].client fetchAllDatabases] collect] subscribeNext:^(NSArray *databases) {
         @strongify(self);
         self.databases = databases;
         [self.databaseListView reloadData];

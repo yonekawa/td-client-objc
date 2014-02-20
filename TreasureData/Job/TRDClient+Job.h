@@ -1,5 +1,5 @@
 //
-//  TRDClient+Database.h
+//  TRDClient+Job.h
 //  TreasureData
 //
 //  Created by Kenichi Yonekawa on 2014/02/20.
@@ -8,6 +8,6 @@
 
 #import "TRDClient.h"
 
-@interface TRDClient (Database)
-- (RACSignal *)fetchAllDatabases;
+@interface TRDClient (Job)
+- (RACSignal *)fetchAllJobs;
 @end

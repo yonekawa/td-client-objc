@@ -9,13 +9,15 @@
 #import "TRDClient.h"
 #import "TRDClient+Authenticate.h"
 #import "TRDClient+Database.h"
+#import "TRDClient+Job.h"
 #import "TRDApiKey.h"
 #import "TRDDatabase.h"
+#import "TRDJob.h"
 
 SpecBegin(TRDClient)
 
 void (^stubResponseWithHeaders)(NSString *, NSString *, NSDictionary *) = ^(NSString *path, NSString *responseFilename, NSDictionary *headers) {
-	headers = [headers mtl_dictionaryByAddingEntriesFromDictionary:@{
+    headers = [headers mtl_dictionaryByAddingEntriesFromDictionary:@{
         @"Content-Type": @"application/json",
     }];
 
@@ -28,7 +30,7 @@ void (^stubResponseWithHeaders)(NSString *, NSString *, NSDictionary *) = ^(NSSt
 };
 
 void (^stubResponse)(NSString *, NSString *) = ^(NSString *path, NSString *responseFilename) {
-	stubResponseWithHeaders(path, responseFilename, @{});
+    stubResponseWithHeaders(path, responseFilename, @{});
 };
 
 __block BOOL success;
@@ -55,12 +57,11 @@ describe(@"authenticate", ^{
 
 describe(@"database", ^{
     it(@"should return database list", ^{
-        stubResponse(@"/v3/user/authenticate", @"authenticate.json");
-        TRDApiKey *key = [MTLJSONAdapter modelOfClass:[TRDApiKey class] fromJSONDictionary:@{@"apikey": @"6d4156815103370f2e09fa76bc505ef857b4d947"} error:NULL];
+        TRDApiKey *key = [MTLJSONAdapter modelOfClass:[TRDApiKey class] fromJSONDictionary:@{@"apikey": @"e72e16c7e42f292c6912e7710c838347ae178b4a"} error:NULL];
         TRDClient *client = [[TRDClient alloc] initWithApiKey:key];
 
         stubResponse(@"/v3/database/list", @"database_list.json");
-        RACSignal *result = [[client fetchDatabases] collect];
+        RACSignal *result = [[client fetchAllDatabases] collect];
         NSArray *databases = [result asynchronousFirstOrDefault:nil success:&success error:&error];
         expect(databases).notTo.beNil();
 		expect(success).to.beTruthy();
@@ -69,6 +70,24 @@ describe(@"database", ^{
         expect([databases count]).to.equal(2);
         expect(((TRDDatabase *)databases[0]).name).to.equal(@"database1");
         expect(((TRDDatabase *)databases[1]).name).to.equal(@"database2");
+    });
+});
+
+describe(@"job", ^{
+    it(@"should return job list", ^{
+        TRDApiKey *key = [MTLJSONAdapter modelOfClass:[TRDApiKey class] fromJSONDictionary:@{@"apikey": @"e72e16c7e42f292c6912e7710c838347ae178b4a"} error:NULL];
+        TRDClient *client = [[TRDClient alloc] initWithApiKey:key];
+
+        stubResponse(@"/v3/job/list", @"job_list.json");
+        RACSignal *result = [[client fetchAllJobs] collect];
+        NSArray *jobs = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+        expect(jobs).notTo.beNil();
+		expect(success).to.beTruthy();
+		expect(error).to.beNil();
+        
+        expect([jobs count]).to.equal(2);
+        expect(((TRDJob *)jobs[0]).status).to.equal(@"success");
+        expect(((TRDJob *)jobs[1]).status).to.equal(@"running");
     });
 });
 

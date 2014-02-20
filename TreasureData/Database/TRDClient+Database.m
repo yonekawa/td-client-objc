@@ -11,17 +11,16 @@
 
 @implementation TRDClient (Database)
 
-- (RACSignal *)fetchDatabases
+- (RACSignal *)fetchAllDatabases
 {
-    TRDClient *client = [[TRDClient alloc] init];
-    NSURLRequest *request = [client requestWithMethod:@"GET"
-                                                 path:@"/v3/database/list"
-                                           parameters:nil
-                                       withAuthHeader:YES];
-    return [client enqueueRequest:request parseResultBlock:^(id<RACSubscriber> subscriber, id responseObject) {
+    NSURLRequest *request = [self requestWithMethod:@"GET"
+                                               path:@"/v3/database/list"
+                                         parameters:nil
+                                     withAuthHeader:YES];
+    return [self enqueueRequest:request parseResultBlock:^(id<RACSubscriber> subscriber, id responseObject) {
         NSArray *databases = responseObject[@"databases"];
-        for (NSDictionary *db in databases) {
-            TRDDatabase *database = [MTLJSONAdapter modelOfClass:[TRDDatabase class] fromJSONDictionary:db error:NULL];
+        for (NSDictionary *databaseObject in databases) {
+            TRDDatabase *database = [MTLJSONAdapter modelOfClass:[TRDDatabase class] fromJSONDictionary:databaseObject error:NULL];
             [subscriber sendNext:database];
         }
     }];

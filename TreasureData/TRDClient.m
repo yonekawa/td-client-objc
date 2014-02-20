@@ -64,8 +64,9 @@ static NSString *const TRDAuthorizationHeaderFormat = @"TD1 %@";
                                 parameters:(NSDictionary *)parameters
                             withAuthHeader:(BOOL)withAuthHeader
 {
+    NSURL *url = [NSURL URLWithString:[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] relativeToURL:self.baseURL];
     NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method
-                                                                   URLString:[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+                                                                   URLString:[url absoluteString]
                                                                   parameters:parameters
                                                                        error:nil]; // TODO: error handling.
     [request addValue:[NSString stringWithFormat:TRDAuthorizationHeaderFormat, self.apiKey.value] forHTTPHeaderField:@"AUTHORIZATION"];
