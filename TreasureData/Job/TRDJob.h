@@ -43,4 +43,6 @@ typedef NS_ENUM(NSUInteger, TRDJobType) {
 @property(readonly) NSString *database;
 @property(readonly) NSString *url;
 @property(readonly) NSString *result;
+@property(readonly) NSString *debugSTDERR;
+@property(readonly) NSString *debugCMDOUT;
 @end

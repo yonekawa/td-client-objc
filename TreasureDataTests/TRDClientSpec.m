@@ -108,13 +108,17 @@ describe(@"job", ^{
         expect(((TRDJob *)jobs[1]).status).to.equal(TRDJobStatusError);
     });
 
-    it(@"should create new job", ^{
-        stubResponse(@"/v3/job/issue/hive/sample_db", @"job_issue_hive.json");
+    it(@"should return job specified", ^{
+        stubResponse(@"/v3/job/show/8038069", @"job_show.json");
+        RACSignal *result = [client fetchJobWithJobID:8038069];
+        TRDJob *job = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+        expect(job).notTo.beNil();
+		expect(success).to.beTruthy();
+		expect(error).to.beNil();
 
-        NSString *query = @"SELECT codd, COUNT(1) AS COUNT FROM www_access GROUP BY code";
-        RACSignal *result = [client createNewJobWithQuery:query database:@"sample_db"];
-        NSNumber *jobID = [result asynchronousFirstOrDefault:nil success:&success error:&error];
-        expect([jobID integerValue]).to.equal(8038069);
+        expect(job.status).to.equal(TRDJobStatusSuccess);
+        expect(job.debugSTDERR).to.equal(@"STANDARDERROR");
+        expect(job.debugCMDOUT).to.equal(@"COMMANDOUT");
     });
 
     it(@"should return job status", ^{
@@ -130,6 +134,15 @@ describe(@"job", ^{
         expect(job.status).to.equal(TRDJobStatusSuccess);
         expect(job.startAt).to.equal([dateFormatter dateFromString:@"2012-09-17 21:00:01 UTC"]);
         expect(job.endAt).to.equal([dateFormatter dateFromString:@"2012-09-17 21:00:52 UTC"]);
+    });
+
+    it(@"should create new job", ^{
+        stubResponse(@"/v3/job/issue/hive/sample_db", @"job_issue_hive.json");
+
+        NSString *query = @"SELECT codd, COUNT(1) AS COUNT FROM www_access GROUP BY code";
+        RACSignal *result = [client createNewJobWithQuery:query database:@"sample_db"];
+        NSNumber *jobID = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+        expect([jobID integerValue]).to.equal(8038069);
     });
 });
 

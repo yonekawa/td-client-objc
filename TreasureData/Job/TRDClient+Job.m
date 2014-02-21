@@ -36,6 +36,34 @@
     }];
 }
 
+- (RACSignal *)fetchJobWithJobID:(NSUInteger)jobID
+{
+    NSParameterAssert(jobID);
+
+    NSURLRequest *request = [self requestWithMethod:@"GET"
+                                               path:[NSString stringWithFormat:@"/v3/job/show/%d", jobID]
+                                         parameters:nil
+                                     withAuthHeader:YES];
+    return [self enqueueRequest:request parseResultBlock:^(id<RACSubscriber> subscriber, id responseObject) {
+        TRDJob *job = [MTLJSONAdapter modelOfClass:[TRDJob class] fromJSONDictionary:responseObject error:NULL];
+        [subscriber sendNext:job];
+    }];
+}
+
+- (RACSignal *)fetchJobStatusWithJobID:(NSUInteger)jobID
+{
+    NSParameterAssert(jobID);
+
+    NSURLRequest *request = [self requestWithMethod:@"GET"
+                                               path:[NSString stringWithFormat:@"/v3/job/status/%d", jobID]
+                                         parameters:nil
+                                     withAuthHeader:YES];
+    return [self enqueueRequest:request parseResultBlock:^(id<RACSubscriber> subscriber, id responseObject) {
+        TRDJob *job = [MTLJSONAdapter modelOfClass:[TRDJob class] fromJSONDictionary:responseObject error:NULL];
+        [subscriber sendNext:job];
+    }];
+}
+
 - (RACSignal *)createNewJobWithQuery:(NSString *)query database:(NSString *)database
 {
     return [self createNewJobWithQuery:query database:database priority:TRDJobPriorityNormal];
@@ -52,20 +80,6 @@
                                      withAuthHeader:YES];
     return [self enqueueRequest:request parseResultBlock:^(id<RACSubscriber> subscriber, id responseObject) {
         [subscriber sendNext:responseObject[@"job_id"]];
-    }];
-}
-
-- (RACSignal *)fetchJobStatusWithJobID:(NSUInteger)jobID
-{
-    NSParameterAssert(jobID);
-
-    NSURLRequest *request = [self requestWithMethod:@"GET"
-                                               path:[NSString stringWithFormat:@"/v3/job/status/%d", jobID]
-                                         parameters:nil
-                                     withAuthHeader:YES];
-    return [self enqueueRequest:request parseResultBlock:^(id<RACSubscriber> subscriber, id responseObject) {
-        TRDJob *job = [MTLJSONAdapter modelOfClass:[TRDJob class] fromJSONDictionary:responseObject error:NULL];
-        [subscriber sendNext:job];
     }];
 }
 

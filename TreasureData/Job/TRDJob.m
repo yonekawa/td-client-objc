@@ -15,13 +15,15 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
-        @"jobID":      @"job_id",
-        @"createdAt":  @"created_at",
-        @"updatedAt":  @"updated_at",
-        @"startAt":    @"start_at",
-        @"endAt":      @"end_at",
-        @"retryLimit": @"retry_limit",
-        @"userName":   @"user_name",
+        @"jobID":       @"job_id",
+        @"createdAt":   @"created_at",
+        @"updatedAt":   @"updated_at",
+        @"startAt":     @"start_at",
+        @"endAt":       @"end_at",
+        @"retryLimit":  @"retry_limit",
+        @"userName":    @"user_name",
+        @"debugSTDERR": @"debug.stderr",
+        @"debugCMDOUT": @"debug.cmdout",
     };
 }
 

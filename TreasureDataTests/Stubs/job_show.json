@@ -1,0 +1,23 @@
+
+{
+    "created_at": "2014-02-20 10:21:55 UTC",
+    "database": "sample_db",
+    "end_at": "2014-02-20 10:22:43 UTC",
+    "hive_result_schema": "[[\"code\",\"bigint\"],[\"count\",\"bigint\"]]",
+    "job_id": 8015461,
+    "organization": null,
+    "priority": 0,
+    "query": "SELECT code, COUNT(1) AS count FROM www_access GROUP BY code",
+    "result": "",
+    "retry_limit": 0,
+    "start_at": "2014-02-20 10:21:55 UTC",
+    "status": "success",
+    "type": "hive",
+    "updated_at": "2014-02-20 10:22:43 UTC",
+    "url": "http://console.treasuredata.com/jobs/8015461",
+    "user_name": "owner",
+    "debug": {
+        "stderr": "STANDARDERROR",
+        "cmdout": "COMMANDOUT"
+    }
+}
