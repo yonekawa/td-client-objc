@@ -107,6 +107,15 @@ describe(@"job", ^{
         expect(((TRDJob *)jobs[0]).status).to.equal(TRDJobStatusRunning);
         expect(((TRDJob *)jobs[1]).status).to.equal(TRDJobStatusError);
     });
+
+    it(@"should create new job", ^{
+        stubResponse(@"/v3/job/issue/hive/sample_db", @"job_issue_hive.json");
+
+        NSString *query = @"SELECT codd, COUNT(1) AS COUNT FROM www_access GROUP BY code";
+        RACSignal *result = [client createNewJobWithQuery:query database:@"sample_db"];
+        NSNumber *jobID = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+        expect([jobID integerValue]).to.equal(8038069);
+    });
 });
 
 SpecEnd

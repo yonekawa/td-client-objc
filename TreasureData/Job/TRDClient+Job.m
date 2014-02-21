@@ -36,4 +36,23 @@
     }];
 }
 
+- (RACSignal *)createNewJobWithQuery:(NSString *)query database:(NSString *)database
+{
+    return [self createNewJobWithQuery:query database:database priority:TRDJobPriorityNormal];
+}
+
+- (RACSignal *)createNewJobWithQuery:(NSString *)query database:(NSString *)database priority:(TRDJobPriority)priority
+{
+    NSParameterAssert(query);
+    NSParameterAssert(database);
+
+    NSURLRequest *request = [self requestWithMethod:@"POST"
+                                               path:[NSString stringWithFormat:@"/v3/job/issue/hive/%@", database]
+                                         parameters:@{@"query": query, @"priority": @(priority)}
+                                     withAuthHeader:YES];
+    return [self enqueueRequest:request parseResultBlock:^(id<RACSubscriber> subscriber, id responseObject) {
+        [subscriber sendNext:responseObject[@"job"]];
+    }];
+}
+
 @end

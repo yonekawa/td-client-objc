@@ -12,4 +12,6 @@
 @interface TRDClient (Job)
 - (RACSignal *)fetchAllJobs;
 - (RACSignal *)fetchJobsWithDatabase:(NSString *)database;
+- (RACSignal *)createNewJobWithQuery:(NSString *)query database:(NSString *)database;
+- (RACSignal *)createNewJobWithQuery:(NSString *)query database:(NSString *)database priority:(TRDJobPriority)priority;
 @end
