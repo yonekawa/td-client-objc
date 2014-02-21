@@ -9,9 +9,11 @@
 #import "TRDClient.h"
 #import "TRDClient+Authenticate.h"
 #import "TRDClient+Database.h"
+#import "TRDClient+Table.h"
 #import "TRDClient+Job.h"
 #import "TRDApiKey.h"
 #import "TRDDatabase.h"
+#import "TRDTable.h"
 #import "TRDJob.h"
 
 SpecBegin(TRDClient)
@@ -58,14 +60,17 @@ describe(@"authenticate", ^{
 });
 
 __block TRDClient *client = nil;
+void (^useMockClient)() = ^() {
+    TRDApiKey *key = [MTLJSONAdapter modelOfClass:[TRDApiKey class] fromJSONDictionary:@{@"apikey": @"e72e16c7e42f292c6912e7710c838347ae178b4a"} error:NULL];
+    client = [[TRDClient alloc] initWithApiKey:key];
+};
 
 describe(@"database", ^{
     beforeEach(^{
-        TRDApiKey *key = [MTLJSONAdapter modelOfClass:[TRDApiKey class] fromJSONDictionary:@{@"apikey": @"e72e16c7e42f292c6912e7710c838347ae178b4a"} error:NULL];
-        client = [[TRDClient alloc] initWithApiKey:key];
+        useMockClient();
     });
 
-    describe(@"fetchAllDatabases", ^{
+    describe(@"-fetchAllDatabases", ^{
         it(@"should return database list", ^{
             stubJsonResponse(@"/v3/database/list", @"database_list.json");
             RACSignal *response = [[client fetchAllDatabases] collect];
@@ -81,10 +86,30 @@ describe(@"database", ^{
     });
 });
 
+describe(@"table", ^{
+    beforeEach(^{
+        useMockClient();
+    });
+
+    describe(@"-fetchTableWithDatabase", ^{
+        it(@"should return table list in database specified", ^{
+            stubJsonResponse(@"/v3/table/list/database1", @"table_list.json");
+            RACSignal *response = [[client fetchTablesWithDatabase:@"database1"] collect];
+            NSArray *tables = [response asynchronousFirstOrDefault:nil success:&success error:&error];
+            expect(tables).notTo.beNil();
+            expect(success).to.beTruthy();
+            expect(error).to.beNil();
+            
+            expect([tables count]).to.equal(2);
+            expect(((TRDTable *)tables[0]).name).to.equal(@"table1");
+            expect(((TRDTable *)tables[1]).name).to.equal(@"table2");
+        });
+    });
+});
+
 describe(@"job", ^{
     beforeEach(^{
-        TRDApiKey *key = [MTLJSONAdapter modelOfClass:[TRDApiKey class] fromJSONDictionary:@{@"apikey": @"e72e16c7e42f292c6912e7710c838347ae178b4a"} error:NULL];
-        client = [[TRDClient alloc] initWithApiKey:key];
+        useMockClient();
     });
 
     describe(@"-fetchAllJobs", ^{
@@ -103,7 +128,7 @@ describe(@"job", ^{
     });
 
     describe(@"-fetchJobsWithDatabase:", ^{
-        it(@"should return job list in specified database", ^{
+        it(@"should return job list in database specified", ^{
             stubJsonResponse(@"/v3/job/list", @"job_list_with_database.json");
             RACSignal *response = [[client fetchJobsWithDatabase:@"sample_db_2"] collect];
             NSArray *jobs = [response asynchronousFirstOrDefault:nil success:&success error:&error];

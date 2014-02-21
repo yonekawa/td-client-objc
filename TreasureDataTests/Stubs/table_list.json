@@ -1,0 +1,31 @@
+{
+    "database": "database1",
+    "tables": [
+        {
+            "count": 5000,
+            "counter_updated_at": "2014-02-18T08:12:36Z",
+            "created_at": "2014-02-18 08:12:29 UTC",
+            "estimated_storage_size": 0,
+            "expire_days": null,
+            "id": 102538,
+            "last_log_timestamp": "2013-09-07T01:13:45Z",
+            "name": "table1",
+            "schema": "[[\"host\",\"string\"],[\"path\",\"string\"],[\"method\",\"string\"],[\"referer\",\"string\"],[\"code\",\"long\"],[\"agent\",\"string\"],[\"user\",\"string\"],[\"size\",\"long\"]]",
+            "type": "log",
+            "updated_at": "2014-02-18 08:12:36 UTC"
+        },
+        {
+            "count": 5000,
+            "counter_updated_at": "2014-02-18T08:12:36Z",
+            "created_at": "2014-02-18 08:12:29 UTC",
+            "estimated_storage_size": 0,
+            "expire_days": null,
+            "id": 102538,
+            "last_log_timestamp": "2013-09-07T01:13:45Z",
+            "name": "table2",
+            "schema": "[[\"host\",\"string\"],[\"path\",\"string\"],[\"method\",\"string\"],[\"referer\",\"string\"],[\"code\",\"long\"],[\"agent\",\"string\"],[\"user\",\"string\"],[\"size\",\"long\"]]",
+            "type": "log",
+            "updated_at": "2014-02-18 08:12:36 UTC"
+        }
+    ]
+}

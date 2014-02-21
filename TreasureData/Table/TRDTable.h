@@ -11,4 +11,9 @@
 @interface TRDTable : MTLModel <MTLJSONSerializing>
 @property(readonly) NSUInteger count;
 @property(readonly) NSString *name;
+@property(readonly) NSString *schema;
+@property(readonly) NSDate *createdAt;
+@property(readonly) NSDate *updatedAt;
+@property(readonly) NSDate *lastLogTimestamp;
+@property(readonly) NSDate *counterUpdatedAt;
 @end
