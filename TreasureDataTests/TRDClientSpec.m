@@ -105,6 +105,15 @@ describe(@"table", ^{
             expect(((TRDTable *)tables[1]).name).to.equal(@"table2");
         });
     });
+
+    describe(@"-swapTableWithDatabase:before:after", ^{
+        stubJsonResponse(@"/v3/swap/table/database1/table1/table2", @"swap_table.json");
+        RACSignal *response = [client swapTableWithDatabase:@"database1" before:@"table1" after:@"table2"];
+        id result = [response asynchronousFirstOrDefault:nil success:&success error:&error];
+        expect(result).notTo.beNil();
+        expect(success).to.beTruthy();
+        expect(error).to.beNil();
+    });
 });
 
 describe(@"job", ^{

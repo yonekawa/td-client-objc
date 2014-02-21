@@ -39,6 +39,7 @@
 		CA4DE4DA18B62F80001D1E9E /* job_list.json in Resources */ = {isa = PBXBuildFile; fileRef = CA4DE4D918B62F80001D1E9E /* job_list.json */; };
 		CA4DE4DD18B77BE5001D1E9E /* TRDClient+Table.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4DC18B77BE5001D1E9E /* TRDClient+Table.m */; };
 		CA4DE4DF18B77DF9001D1E9E /* table_list.json in Resources */ = {isa = PBXBuildFile; fileRef = CA4DE4DE18B77DF9001D1E9E /* table_list.json */; };
+		CA4DE4E118B7895C001D1E9E /* table_swap.json in Resources */ = {isa = PBXBuildFile; fileRef = CA4DE4E018B7895C001D1E9E /* table_swap.json */; };
 		D8EB7192D7B34CD4BA068AC0 /* libPods-TreasureDataTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA760CA9686B421C80B29C5F /* libPods-TreasureDataTests.a */; };
 		EA3F5A3A30BB48F99A0C0AEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97327B302C06407986E6E65E /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -115,6 +116,7 @@
 		CA4DE4DB18B77BE5001D1E9E /* TRDClient+Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TRDClient+Table.h"; sourceTree = "<group>"; };
 		CA4DE4DC18B77BE5001D1E9E /* TRDClient+Table.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TRDClient+Table.m"; sourceTree = "<group>"; };
 		CA4DE4DE18B77DF9001D1E9E /* table_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = table_list.json; sourceTree = "<group>"; };
+		CA4DE4E018B7895C001D1E9E /* table_swap.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = table_swap.json; sourceTree = "<group>"; };
 		EA760CA9686B421C80B29C5F /* libPods-TreasureDataTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TreasureDataTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -195,6 +197,7 @@
 				A466AC4F18B329A400FB89B8 /* authenticate.json */,
 				A455F81D18B35347000B845F /* database_list.json */,
 				CA4DE4DE18B77DF9001D1E9E /* table_list.json */,
+				CA4DE4E018B7895C001D1E9E /* table_swap.json */,
 				CA4DE4D918B62F80001D1E9E /* job_list.json */,
 				A4B3DB9818B6EB16007CD022 /* job_list_with_database.json */,
 				A4B3DB9D18B6F824007CD022 /* job_issue_hive.json */,
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4DD6ACE18B740B2000EC0C4 /* job_show.json in Resources */,
+				CA4DE4E118B7895C001D1E9E /* table_swap.json in Resources */,
 				A466AC5018B329A400FB89B8 /* authenticate.json in Resources */,
 				A4DD6ACC18B73F68000EC0C4 /* job_status.json in Resources */,
 				A4B3DB9E18B6F824007CD022 /* job_issue_hive.json in Resources */,

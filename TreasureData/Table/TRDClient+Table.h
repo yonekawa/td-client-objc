@@ -10,4 +10,7 @@
 
 @interface TRDClient (Table)
 - (RACSignal *)fetchTablesWithDatabase:(NSString *)database;
+- (RACSignal *)swapTableWithDatabase:(NSString *)database
+                              before:(NSString *)before
+                               after:(NSString *)after;
 @end

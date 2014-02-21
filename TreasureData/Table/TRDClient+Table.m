@@ -28,4 +28,20 @@
     }];
 }
 
+- (RACSignal *)swapTableWithDatabase:(NSString *)database
+                              before:(NSString *)before
+                               after:(NSString *)after
+{
+    NSParameterAssert(database);
+    NSParameterAssert(before);
+    NSParameterAssert(after);
+
+    NSString *path = [NSString stringWithFormat:@"/v3/table/swap/%@/%@/%@", database, before, after];
+    NSURLRequest *request = [self requestWithMethod:@"POST"
+                                               path:path
+                                         parameters:nil
+                                     withAuthHeader:YES];
+    return [self enqueueRequest:request parseResultBlock:nil];
+}
+
 @end
