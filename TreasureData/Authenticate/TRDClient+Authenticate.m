@@ -16,6 +16,9 @@
 
 + (RACSignal *)authenticateWithUsername:(NSString *)username password:(NSString *)password
 {
+    NSParameterAssert(username);
+    NSParameterAssert(password);
+
     TRDClient *client = [[TRDClient alloc] init];
     NSURLRequest *request = [client requestWithMethod:@"POST"
                                                  path:@"/v3/user/authenticate"

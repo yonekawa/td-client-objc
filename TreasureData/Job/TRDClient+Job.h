@@ -14,4 +14,5 @@
 - (RACSignal *)fetchJobsWithDatabase:(NSString *)database;
 - (RACSignal *)createNewJobWithQuery:(NSString *)query database:(NSString *)database;
 - (RACSignal *)createNewJobWithQuery:(NSString *)query database:(NSString *)database priority:(TRDJobPriority)priority;
+- (RACSignal *)fetchJobStatusWithJobID:(NSUInteger)jobID;
 @end

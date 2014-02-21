@@ -116,6 +116,21 @@ describe(@"job", ^{
         NSNumber *jobID = [result asynchronousFirstOrDefault:nil success:&success error:&error];
         expect([jobID integerValue]).to.equal(8038069);
     });
+
+    it(@"should return job status", ^{
+        stubResponse(@"/v3/job/status/8038069", @"job_status.json");
+
+        RACSignal *result = [client fetchJobStatusWithJobID:8038069];
+        TRDJob *job = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+        expect(job).notTo.beNil();
+		expect(success).to.beTruthy();
+		expect(error).to.beNil();
+
+        ISO8601DateFormatter *dateFormatter = [[ISO8601DateFormatter alloc] init];
+        expect(job.status).to.equal(TRDJobStatusSuccess);
+        expect(job.startAt).to.equal([dateFormatter dateFromString:@"2012-09-17 21:00:01 UTC"]);
+        expect(job.endAt).to.equal([dateFormatter dateFromString:@"2012-09-17 21:00:52 UTC"]);
+    });
 });
 
 SpecEnd

@@ -24,6 +24,7 @@
 		A4B3DB9918B6EB16007CD022 /* job_list_with_database.json in Resources */ = {isa = PBXBuildFile; fileRef = A4B3DB9818B6EB16007CD022 /* job_list_with_database.json */; };
 		A4B3DB9C18B6F174007CD022 /* TRDJobStatusTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3DB9B18B6F174007CD022 /* TRDJobStatusTransformer.m */; };
 		A4B3DB9E18B6F824007CD022 /* job_issue_hive.json in Resources */ = {isa = PBXBuildFile; fileRef = A4B3DB9D18B6F824007CD022 /* job_issue_hive.json */; };
+		A4DD6ACC18B73F68000EC0C4 /* job_status.json in Resources */ = {isa = PBXBuildFile; fileRef = A4DD6ACB18B73F68000EC0C4 /* job_status.json */; };
 		CA4DE4CA18B62EF2001D1E9E /* TRDClient+Authenticate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4C918B62EF2001D1E9E /* TRDClient+Authenticate.m */; };
 		CA4DE4CD18B62F01001D1E9E /* TRDClient+Database.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4CC18B62F01001D1E9E /* TRDClient+Database.m */; };
 		CA4DE4D318B62F0E001D1E9E /* TRDClient+Job.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4D018B62F0E001D1E9E /* TRDClient+Job.m */; };
@@ -86,6 +87,7 @@
 		A4B3DB9A18B6F174007CD022 /* TRDJobStatusTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRDJobStatusTransformer.h; sourceTree = "<group>"; };
 		A4B3DB9B18B6F174007CD022 /* TRDJobStatusTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDJobStatusTransformer.m; sourceTree = "<group>"; };
 		A4B3DB9D18B6F824007CD022 /* job_issue_hive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = job_issue_hive.json; sourceTree = "<group>"; };
+		A4DD6ACB18B73F68000EC0C4 /* job_status.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = job_status.json; sourceTree = "<group>"; };
 		CA4DE4C818B62EF2001D1E9E /* TRDClient+Authenticate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TRDClient+Authenticate.h"; sourceTree = "<group>"; };
 		CA4DE4C918B62EF2001D1E9E /* TRDClient+Authenticate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TRDClient+Authenticate.m"; sourceTree = "<group>"; };
 		CA4DE4CB18B62F01001D1E9E /* TRDClient+Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TRDClient+Database.h"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				CA4DE4D918B62F80001D1E9E /* job_list.json */,
 				A4B3DB9818B6EB16007CD022 /* job_list_with_database.json */,
 				A4B3DB9D18B6F824007CD022 /* job_issue_hive.json */,
+				A4DD6ACB18B73F68000EC0C4 /* job_status.json */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -250,10 +253,10 @@
 			children = (
 				CA4DE4D118B62F0E001D1E9E /* TRDJob.h */,
 				CA4DE4D218B62F0E001D1E9E /* TRDJob.m */,
-				CA4DE4CF18B62F0E001D1E9E /* TRDClient+Job.h */,
-				CA4DE4D018B62F0E001D1E9E /* TRDClient+Job.m */,
 				A4B3DB9A18B6F174007CD022 /* TRDJobStatusTransformer.h */,
 				A4B3DB9B18B6F174007CD022 /* TRDJobStatusTransformer.m */,
+				CA4DE4CF18B62F0E001D1E9E /* TRDClient+Job.h */,
+				CA4DE4D018B62F0E001D1E9E /* TRDClient+Job.m */,
 			);
 			path = Job;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A466AC5018B329A400FB89B8 /* authenticate.json in Resources */,
+				A4DD6ACC18B73F68000EC0C4 /* job_status.json in Resources */,
 				A4B3DB9E18B6F824007CD022 /* job_issue_hive.json in Resources */,
 				A455F81E18B35347000B845F /* database_list.json in Resources */,
 				A4B3DB9918B6EB16007CD022 /* job_list_with_database.json in Resources */,
