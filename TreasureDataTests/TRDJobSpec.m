@@ -38,7 +38,9 @@ beforeEach(^{
 
 it(@"should initialize", ^{
     ISO8601DateFormatter *dateFormatter = [[ISO8601DateFormatter alloc] init];
-    expect(job.status).to.equal(@"success");
+    expect(job.status).to.equal(TRDJobStatusSuccess);
+    expect(job.type).to.equal(TRDJobTypeHive);
+    expect(job.priority).to.equal(TRDJobPriorityNormal);
     expect(job.jobID).to.equal(8015461);
     expect(job.startAt).to.equal([dateFormatter dateFromString:@"2014-02-20 10:21:55 UTC"]);
     expect(job.endAt).to.equal([dateFormatter dateFromString:@"2014-02-20 10:21:55 UTC"]);

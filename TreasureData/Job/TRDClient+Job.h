@@ -7,6 +7,7 @@
 //
 
 #import "TRDClient.h"
+#import "TRDJob.h"
 
 @interface TRDClient (Job)
 - (RACSignal *)fetchAllJobs;

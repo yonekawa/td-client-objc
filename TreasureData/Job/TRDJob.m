@@ -8,6 +8,7 @@
 
 #import "TRDJob.h"
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
+#import "TRDJobStatusTransformer.h"
 
 @implementation TRDJob
 
@@ -22,6 +23,21 @@
         @"retryLimit": @"retry_limit",
         @"userName":   @"user_name",
     };
+}
+
++ (NSValueTransformer *)statusJSONTransformer
+{
+    return [TRDJobStatusTransformer reversibleTransformer];
+}
+
++ (NSValueTransformer *)typeJSONTransformer
+{
+    // only ‘hive’ at the moment
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
+        return @(TRDJobTypeHive);
+    } reverseBlock:^(NSNumber *type) {
+        return @"hive";
+    }];
 }
 
 + (NSValueTransformer *)createdAtJSONTransformer

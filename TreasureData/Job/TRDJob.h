@@ -8,22 +8,39 @@
 
 #import <Mantle/Mantle.h>
 
+typedef NS_ENUM(NSUInteger, TRDJobStatus) {
+    TRDJobStatusQueued,
+    TRDJobStatusBooting,
+    TRDJobStatusRunning,
+    TRDJobStatusSuccess,
+    TRDJobStatusError
+};
+
+typedef NS_ENUM(NSUInteger, TRDJobPriority) {
+    TRDJobPriorityNormal = 0,
+    TRDJobPriorityVeryLow = -2,
+    TRDJobPriorityLow = -1,
+    TRDJobPriorityHigh = 1,
+    TRDJobPriorityVeryHigh = 2
+};
+
+typedef NS_ENUM(NSUInteger, TRDJobType) {
+    TRDJobTypeHive
+};
+
 @interface TRDJob : MTLModel <MTLJSONSerializing>
-@property(readonly) NSString *status; // TODO: enumerize.
 @property(readonly) NSUInteger jobID;
+@property(readonly) TRDJobStatus status;
+@property(readonly) TRDJobPriority priority;
+@property(readonly) TRDJobType type;
 @property(readonly) NSDate *createdAt;
 @property(readonly) NSDate *updatedAt;
 @property(readonly) NSDate *startAt;
 @property(readonly) NSDate *endAt;
 @property(readonly) NSString *query;
-@property(readonly) NSString *type; // TODO: enumerise.
-@property(readonly) NSUInteger priority; // TODO: enumerise.
 @property(readonly) NSUInteger retryLimit;
 @property(readonly) NSString *userName;
 @property(readonly) NSString *database;
-
-// "hive_result_schema": null,
-// "result": "",
-// "url": "http://console.treasure-data.com/jobs/215782",
-// "organization": null,
+@property(readonly) NSString *url;
+@property(readonly) NSString *result;
 @end

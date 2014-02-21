@@ -91,8 +91,8 @@ describe(@"job", ^{
 		expect(error).to.beNil();
 
         expect([jobs count]).to.equal(2);
-        expect(((TRDJob *)jobs[0]).status).to.equal(@"success");
-        expect(((TRDJob *)jobs[1]).status).to.equal(@"running");
+        expect(((TRDJob *)jobs[0]).status).to.equal(TRDJobStatusSuccess);
+        expect(((TRDJob *)jobs[1]).status).to.equal(TRDJobStatusRunning);
     });
 
     it(@"should return job list in specified database", ^{
@@ -104,8 +104,8 @@ describe(@"job", ^{
 		expect(error).to.beNil();
         
         expect([jobs count]).to.equal(2);
-        expect(((TRDJob *)jobs[0]).status).to.equal(@"running");
-        expect(((TRDJob *)jobs[1]).status).to.equal(@"error");
+        expect(((TRDJob *)jobs[0]).status).to.equal(TRDJobStatusRunning);
+        expect(((TRDJob *)jobs[1]).status).to.equal(TRDJobStatusError);
     });
 });
 
