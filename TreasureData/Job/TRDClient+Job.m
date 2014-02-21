@@ -83,4 +83,15 @@
     }];
 }
 
+- (RACSignal *)killJobWithJobID:(NSUInteger)jobID
+{
+    NSParameterAssert(jobID);
+
+    NSURLRequest *request = [self requestWithMethod:@"POST"
+                                               path:[NSString stringWithFormat:@"/v3/job/kill/%d", jobID]
+                                         parameters:nil
+                                     withAuthHeader:YES];
+    return [self enqueueRequest:request parseResultBlock:nil];
+}
+
 @end
