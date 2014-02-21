@@ -10,4 +10,5 @@
 
 @interface TRDClient (Job)
 - (RACSignal *)fetchAllJobs;
+- (RACSignal *)fetchJobsWithDatabase:(NSString *)database;
 @end

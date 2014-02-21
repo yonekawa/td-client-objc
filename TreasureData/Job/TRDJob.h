@@ -20,10 +20,10 @@
 @property(readonly) NSUInteger priority; // TODO: enumerise.
 @property(readonly) NSUInteger retryLimit;
 @property(readonly) NSString *userName;
+@property(readonly) NSString *database;
 
 // "hive_result_schema": null,
 // "result": "",
 // "url": "http://console.treasure-data.com/jobs/215782",
 // "organization": null,
-// "database": "database1"
 @end

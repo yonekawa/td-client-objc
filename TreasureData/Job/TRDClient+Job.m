@@ -13,16 +13,26 @@
 
 - (RACSignal *)fetchAllJobs
 {
+    return [self fetchJobsWithDatabase:nil];
+}
+
+- (RACSignal *)fetchJobsWithDatabase:(NSString *)database
+{
     NSURLRequest *request = [self requestWithMethod:@"GET"
                                                path:@"/v3/job/list"
                                          parameters:@{@"from": @0}
                                      withAuthHeader:YES];
-    return [self enqueueRequest:request parseResultBlock:^(id<RACSubscriber> subscriber, id responseObject) {
+    return [[self enqueueRequest:request parseResultBlock:^(id<RACSubscriber> subscriber, id responseObject) {
         NSArray *jobs = responseObject[@"jobs"];
         for (NSDictionary *jobObject in jobs) {
             TRDJob *job = [MTLJSONAdapter modelOfClass:[TRDJob class] fromJSONDictionary:jobObject error:NULL];
             [subscriber sendNext:job];
         }
+    }] filter:^BOOL(TRDJob *job) {
+        if (!database) {
+            return YES;
+        }
+        return [database isEqualToString:job.database];
     }];
 }
 

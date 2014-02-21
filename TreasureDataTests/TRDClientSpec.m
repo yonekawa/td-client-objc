@@ -55,11 +55,14 @@ describe(@"authenticate", ^{
     });
 });
 
-describe(@"database", ^{
-    it(@"should return database list", ^{
-        TRDApiKey *key = [MTLJSONAdapter modelOfClass:[TRDApiKey class] fromJSONDictionary:@{@"apikey": @"e72e16c7e42f292c6912e7710c838347ae178b4a"} error:NULL];
-        TRDClient *client = [[TRDClient alloc] initWithApiKey:key];
+__block TRDClient *client = nil;
 
+describe(@"database", ^{
+    beforeEach(^{
+        TRDApiKey *key = [MTLJSONAdapter modelOfClass:[TRDApiKey class] fromJSONDictionary:@{@"apikey": @"e72e16c7e42f292c6912e7710c838347ae178b4a"} error:NULL];
+        client = [[TRDClient alloc] initWithApiKey:key];
+    });
+    it(@"should return database list", ^{
         stubResponse(@"/v3/database/list", @"database_list.json");
         RACSignal *result = [[client fetchAllDatabases] collect];
         NSArray *databases = [result asynchronousFirstOrDefault:nil success:&success error:&error];
@@ -74,20 +77,35 @@ describe(@"database", ^{
 });
 
 describe(@"job", ^{
-    it(@"should return job list", ^{
+    beforeEach(^{
         TRDApiKey *key = [MTLJSONAdapter modelOfClass:[TRDApiKey class] fromJSONDictionary:@{@"apikey": @"e72e16c7e42f292c6912e7710c838347ae178b4a"} error:NULL];
-        TRDClient *client = [[TRDClient alloc] initWithApiKey:key];
+        client = [[TRDClient alloc] initWithApiKey:key];
+    });
 
+    it(@"should return all job list", ^{
         stubResponse(@"/v3/job/list", @"job_list.json");
         RACSignal *result = [[client fetchAllJobs] collect];
         NSArray *jobs = [result asynchronousFirstOrDefault:nil success:&success error:&error];
         expect(jobs).notTo.beNil();
 		expect(success).to.beTruthy();
 		expect(error).to.beNil();
-        
+
         expect([jobs count]).to.equal(2);
         expect(((TRDJob *)jobs[0]).status).to.equal(@"success");
         expect(((TRDJob *)jobs[1]).status).to.equal(@"running");
+    });
+
+    it(@"should return job list in specified database", ^{
+        stubResponse(@"/v3/job/list", @"job_list_with_database.json");
+        RACSignal *result = [[client fetchJobsWithDatabase:@"sample_db_2"] collect];
+        NSArray *jobs = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+        expect(jobs).notTo.beNil();
+		expect(success).to.beTruthy();
+		expect(error).to.beNil();
+        
+        expect([jobs count]).to.equal(2);
+        expect(((TRDJob *)jobs[0]).status).to.equal(@"running");
+        expect(((TRDJob *)jobs[1]).status).to.equal(@"error");
     });
 });
 
