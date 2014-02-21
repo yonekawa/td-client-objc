@@ -19,4 +19,7 @@
                             withAuthHeader:(BOOL)withAuthHeader;
 - (RACSignal *)enqueueRequest:(NSURLRequest *)request
              parseResultBlock:(void (^)(id<RACSubscriber> subscriber, id responseObject))parseResultBlock;
+- (RACSignal *)enqueueRequest:(NSURLRequest *)request
+                   serializer:(AFHTTPResponseSerializer *)serializer
+             parseResultBlock:(void (^)(id<RACSubscriber> subscriber, id responseObject))parseResultBlock;
 @end

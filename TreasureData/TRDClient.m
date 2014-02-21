@@ -34,7 +34,28 @@ static NSString *const TRDAuthorizationHeaderFormat = @"TD1 %@";
     return self;
 }
 
+- (NSMutableURLRequest *)requestWithMethod:(NSString *)method
+                                      path:(NSString *)path
+                                parameters:(NSDictionary *)parameters
+                            withAuthHeader:(BOOL)withAuthHeader
+{
+    NSURL *url = [NSURL URLWithString:[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] relativeToURL:self.baseURL];
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method
+                                                                   URLString:[url absoluteString]
+                                                                  parameters:parameters
+                                                                       error:nil]; // TODO: error handling.
+    [request addValue:[NSString stringWithFormat:TRDAuthorizationHeaderFormat, self.apiKey.value] forHTTPHeaderField:@"AUTHORIZATION"];
+    return request;
+}
+
 - (RACSignal *)enqueueRequest:(NSURLRequest *)request parseResultBlock:(void (^)(id<RACSubscriber> subscriber, id responseObject))parseResultBlock
+{
+    return [self enqueueRequest:request serializer:nil parseResultBlock:parseResultBlock];
+}
+
+- (RACSignal *)enqueueRequest:(NSURLRequest *)request
+                   serializer:(AFHTTPResponseSerializer *)serializer
+             parseResultBlock:(void (^)(id<RACSubscriber> subscriber, id responseObject))parseResultBlock
 {
     RACSignal *signal = [RACSignal createSignal:^(id<RACSubscriber> subscriber) {
         AFHTTPRequestOperation *operation = [self HTTPRequestOperationWithRequest:request
@@ -50,27 +71,17 @@ static NSString *const TRDAuthorizationHeaderFormat = @"TD1 %@";
               [subscriber sendError:error];
           }
         ];
+
+        if (serializer) {
+            operation.responseSerializer = serializer;
+        }
         [self.operationQueue addOperation:operation];
-        
+
         return [RACDisposable disposableWithBlock:^{
             [operation cancel];
 		}];
     }];
     return [[signal replayLazily] setNameWithFormat:@"enqueuRequest"];
-}
-
-- (NSMutableURLRequest *)requestWithMethod:(NSString *)method
-                                      path:(NSString *)path
-                                parameters:(NSDictionary *)parameters
-                            withAuthHeader:(BOOL)withAuthHeader
-{
-    NSURL *url = [NSURL URLWithString:[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] relativeToURL:self.baseURL];
-    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method
-                                                                   URLString:[url absoluteString]
-                                                                  parameters:parameters
-                                                                       error:nil]; // TODO: error handling.
-    [request addValue:[NSString stringWithFormat:TRDAuthorizationHeaderFormat, self.apiKey.value] forHTTPHeaderField:@"AUTHORIZATION"];
-    return request;
 }
 
 @end

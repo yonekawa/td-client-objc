@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A44367F118B75BBD0014CDFA /* job_result.csv in Resources */ = {isa = PBXBuildFile; fileRef = A44367F018B75BBD0014CDFA /* job_result.csv */; };
 		A455F81118B34242000B845F /* TRDApiKeySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A455F81018B34242000B845F /* TRDApiKeySpec.m */; };
 		A455F81C18B34913000B845F /* TRDDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A455F81B18B34913000B845F /* TRDDatabase.m */; };
 		A455F81E18B35347000B845F /* database_list.json in Resources */ = {isa = PBXBuildFile; fileRef = A455F81D18B35347000B845F /* database_list.json */; };
@@ -65,6 +66,7 @@
 		19EB1CA173884695899E02A9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		6F8829223D0C42D39263023C /* Pods-TreasureDataTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureDataTests.xcconfig"; path = "Pods/Pods-TreasureDataTests.xcconfig"; sourceTree = "<group>"; };
 		97327B302C06407986E6E65E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A44367F018B75BBD0014CDFA /* job_result.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = job_result.csv; sourceTree = "<group>"; };
 		A455F81018B34242000B845F /* TRDApiKeySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDApiKeySpec.m; sourceTree = "<group>"; };
 		A455F81A18B34913000B845F /* TRDDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRDDatabase.h; sourceTree = "<group>"; };
 		A455F81B18B34913000B845F /* TRDDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDDatabase.m; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				A4DD6ACB18B73F68000EC0C4 /* job_status.json */,
 				A4DD6ACD18B740B2000EC0C4 /* job_show.json */,
 				A4DD6ACF18B74A70000EC0C4 /* job_kill.json */,
+				A44367F018B75BBD0014CDFA /* job_result.csv */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				A455F81E18B35347000B845F /* database_list.json in Resources */,
 				A4B3DB9918B6EB16007CD022 /* job_list_with_database.json in Resources */,
 				A4A4D1F018B2FE230067FA70 /* InfoPlist.strings in Resources */,
+				A44367F118B75BBD0014CDFA /* job_result.csv in Resources */,
 				CA4DE4DA18B62F80001D1E9E /* job_list.json in Resources */,
 				A4DD6AD018B74A70000EC0C4 /* job_kill.json in Resources */,
 			);

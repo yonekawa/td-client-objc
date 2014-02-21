@@ -94,4 +94,33 @@
     return [self enqueueRequest:request parseResultBlock:nil];
 }
 
+- (RACSignal *)downloadJobResultWithJobID:(NSUInteger)jobID format:(TRDJobResultFormat)format
+{
+    NSParameterAssert(jobID);
+
+    NSString *formatName = nil;
+    switch (format) {
+        case TRDJobResultFormatCsv:
+            formatName = @"csv";
+            break;
+        case TRDJobResultFormatJson:
+            formatName = @"json";
+            break;
+        case TRDJobResultFormatMessagePack:
+            formatName = @"msgpack";
+            break;
+        case TRDJobResultFormatMessagePackGzip:
+            formatName = @"msgpack.gz";
+            break;
+        default:
+            formatName = @"tsv";
+            break;
+    }
+    NSURLRequest *request = [self requestWithMethod:@"GET"
+                                               path:[NSString stringWithFormat:@"/v3/job/result/%d", jobID]
+                                         parameters:@{@"format": formatName}
+                                     withAuthHeader:YES];
+    return [self enqueueRequest:request serializer:[AFHTTPResponseSerializer serializer] parseResultBlock:nil];
+}
+
 @end

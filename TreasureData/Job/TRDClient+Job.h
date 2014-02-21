@@ -9,6 +9,14 @@
 #import "TRDClient.h"
 #import "TRDJob.h"
 
+typedef NS_ENUM(NSUInteger, TRDJobResultFormat) {
+    TRDJobResultFormatTsv,
+    TRDJobResultFormatCsv,
+    TRDJobResultFormatJson,
+    TRDJobResultFormatMessagePack,
+    TRDJobResultFormatMessagePackGzip
+};
+
 @interface TRDClient (Job)
 - (RACSignal *)fetchAllJobs;
 - (RACSignal *)fetchJobsWithDatabase:(NSString *)database;
@@ -17,4 +25,5 @@
 - (RACSignal *)createNewJobWithQuery:(NSString *)query database:(NSString *)database;
 - (RACSignal *)createNewJobWithQuery:(NSString *)query database:(NSString *)database priority:(TRDJobPriority)priority;
 - (RACSignal *)killJobWithJobID:(NSUInteger)jobID;
+- (RACSignal *)downloadJobResultWithJobID:(NSUInteger)jobID format:(TRDJobResultFormat)format;
 @end

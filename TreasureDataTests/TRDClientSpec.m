@@ -17,20 +17,20 @@
 SpecBegin(TRDClient)
 
 void (^stubResponseWithHeaders)(NSString *, NSString *, NSDictionary *) = ^(NSString *path, NSString *responseFilename, NSDictionary *headers) {
-    headers = [headers mtl_dictionaryByAddingEntriesFromDictionary:@{
-        @"Content-Type": @"application/json",
-    }];
-
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.path isEqual:path];
     } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
-        NSString *fileName = [[NSBundle bundleForClass:self.class] pathForResource:responseFilename.stringByDeletingPathExtension ofType:@"json"];
+        NSString *fileName = [[NSBundle bundleForClass:self.class] pathForResource:responseFilename.stringByDeletingPathExtension ofType:[responseFilename pathExtension]];
         return [OHHTTPStubsResponse responseWithFileAtPath:fileName statusCode:200 headers:headers];
     }];
 };
 
-void (^stubResponse)(NSString *, NSString *) = ^(NSString *path, NSString *responseFilename) {
-    stubResponseWithHeaders(path, responseFilename, @{});
+void (^stubResponse)(NSString *, NSString *, NSString *) = ^(NSString *path, NSString *responseFilename, NSString *contentType) {
+    stubResponseWithHeaders(path, responseFilename, @{@"Content-Type": contentType});
+};
+
+void (^stubJsonResponse)(NSString *, NSString *) = ^(NSString *path, NSString *responseFilename) {
+    stubResponse(path, responseFilename, @"application/json");
 };
 
 __block BOOL success;
@@ -44,9 +44,9 @@ beforeEach(^{
 describe(@"authenticate", ^{
     describe(@"+authenticateWithUsername:password:", ^{
         it(@"should return an api key object", ^{
-            stubResponse(@"/v3/user/authenticate", @"authenticate.json");
-            RACSignal *result = [TRDClient authenticateWithUsername:@"user" password:@"password"];
-            TRDClient *client = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+            stubJsonResponse(@"/v3/user/authenticate", @"authenticate.json");
+            RACSignal *response = [TRDClient authenticateWithUsername:@"user" password:@"password"];
+            TRDClient *client = [response asynchronousFirstOrDefault:nil success:&success error:&error];
 
             expect(client).notTo.beNil();
             expect(success).to.beTruthy();
@@ -67,9 +67,9 @@ describe(@"database", ^{
 
     describe(@"fetchAllDatabases", ^{
         it(@"should return database list", ^{
-            stubResponse(@"/v3/database/list", @"database_list.json");
-            RACSignal *result = [[client fetchAllDatabases] collect];
-            NSArray *databases = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+            stubJsonResponse(@"/v3/database/list", @"database_list.json");
+            RACSignal *response = [[client fetchAllDatabases] collect];
+            NSArray *databases = [response asynchronousFirstOrDefault:nil success:&success error:&error];
             expect(databases).notTo.beNil();
             expect(success).to.beTruthy();
             expect(error).to.beNil();
@@ -89,9 +89,9 @@ describe(@"job", ^{
 
     describe(@"-fetchAllJobs", ^{
         it(@"should return all job list", ^{
-            stubResponse(@"/v3/job/list", @"job_list.json");
-            RACSignal *result = [[client fetchAllJobs] collect];
-            NSArray *jobs = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+            stubJsonResponse(@"/v3/job/list", @"job_list.json");
+            RACSignal *response = [[client fetchAllJobs] collect];
+            NSArray *jobs = [response asynchronousFirstOrDefault:nil success:&success error:&error];
             expect(jobs).notTo.beNil();
             expect(success).to.beTruthy();
             expect(error).to.beNil();
@@ -104,9 +104,9 @@ describe(@"job", ^{
 
     describe(@"-fetchJobsWithDatabase:", ^{
         it(@"should return job list in specified database", ^{
-            stubResponse(@"/v3/job/list", @"job_list_with_database.json");
-            RACSignal *result = [[client fetchJobsWithDatabase:@"sample_db_2"] collect];
-            NSArray *jobs = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+            stubJsonResponse(@"/v3/job/list", @"job_list_with_database.json");
+            RACSignal *response = [[client fetchJobsWithDatabase:@"sample_db_2"] collect];
+            NSArray *jobs = [response asynchronousFirstOrDefault:nil success:&success error:&error];
             expect(jobs).notTo.beNil();
             expect(success).to.beTruthy();
             expect(error).to.beNil();
@@ -119,9 +119,9 @@ describe(@"job", ^{
 
     describe(@"-fetchJobWithJobID:", ^{
         it(@"should return job specified", ^{
-            stubResponse(@"/v3/job/show/8038069", @"job_show.json");
-            RACSignal *result = [client fetchJobWithJobID:8038069];
-            TRDJob *job = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+            stubJsonResponse(@"/v3/job/show/8038069", @"job_show.json");
+            RACSignal *response = [client fetchJobWithJobID:8038069];
+            TRDJob *job = [response asynchronousFirstOrDefault:nil success:&success error:&error];
             expect(job).notTo.beNil();
             expect(success).to.beTruthy();
             expect(error).to.beNil();
@@ -134,10 +134,10 @@ describe(@"job", ^{
 
     describe(@"-fetchJobStatusWithJobID:", ^{
         it(@"should return job status", ^{
-            stubResponse(@"/v3/job/status/8038069", @"job_status.json");
+            stubJsonResponse(@"/v3/job/status/8038069", @"job_status.json");
 
-            RACSignal *result = [client fetchJobStatusWithJobID:8038069];
-            TRDJob *job = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+            RACSignal *response = [client fetchJobStatusWithJobID:8038069];
+            TRDJob *job = [response asynchronousFirstOrDefault:nil success:&success error:&error];
             expect(job).notTo.beNil();
             expect(success).to.beTruthy();
             expect(error).to.beNil();
@@ -151,26 +151,41 @@ describe(@"job", ^{
 
     describe(@"-createNewJobWithQuery:database:", ^{
         it(@"should create new job", ^{
-            stubResponse(@"/v3/job/issue/hive/sample_db", @"job_issue_hive.json");
+            stubJsonResponse(@"/v3/job/issue/hive/sample_db", @"job_issue_hive.json");
 
             NSString *query = @"SELECT codd, COUNT(1) AS COUNT FROM www_access GROUP BY code";
-            RACSignal *result = [client createNewJobWithQuery:query database:@"sample_db"];
-            NSNumber *jobID = [result asynchronousFirstOrDefault:nil success:&success error:&error];
+            RACSignal *response = [client createNewJobWithQuery:query database:@"sample_db"];
+            NSNumber *jobID = [response asynchronousFirstOrDefault:nil success:&success error:&error];
             expect([jobID integerValue]).to.equal(8038069);
         });
     });
 
     describe(@"-killJobWithJobID:", ^{
         it(@"should kill job specified", ^{
-            stubResponse(@"/v3/job/kill/8038069", @"job_kill.json");
+            stubJsonResponse(@"/v3/job/kill/8038069", @"job_kill.json");
 
-            RACSignal *result = [client killJobWithJobID:8038069];
-            NSDictionary *response = [result asynchronousFirstOrDefault:nil success:&success error:&error];
-            expect(response).notTo.beNil();
+            RACSignal *response = [client killJobWithJobID:8038069];
+            NSDictionary *result = [response asynchronousFirstOrDefault:nil success:&success error:&error];
+            expect(result).notTo.beNil();
             expect(success).to.beTruthy();
             expect(error).to.beNil();
 
-            expect(response[@"former_status"]).to.equal(@"error");
+            expect(result[@"former_status"]).to.equal(@"error");
+        });
+    });
+
+    describe(@"-downloadJobResultWithJobID:format:", ^{
+        it(@"should return job result by format specified", ^{
+            stubResponse(@"/v3/job/result/8038069", @"job_result.csv", @"text/csv");
+
+            RACSignal *response = [client downloadJobResultWithJobID:8038069 format:TRDJobResultFormatCsv];
+            NSData *result = [response asynchronousFirstOrDefault:nil success:&success error:&error];
+            expect(result).notTo.beNil();
+            expect(success).to.beTruthy();
+            expect(error).to.beNil();
+
+            NSString *data = [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding];
+            expect(data).to.equal(@"200,4981\n404,17\n500,2");
         });
     });
 });
