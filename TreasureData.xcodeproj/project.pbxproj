@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A44367F118B75BBD0014CDFA /* job_result.csv in Resources */ = {isa = PBXBuildFile; fileRef = A44367F018B75BBD0014CDFA /* job_result.csv */; };
+		A44367F518B75E140014CDFA /* TRDTable.m in Sources */ = {isa = PBXBuildFile; fileRef = A44367F418B75E140014CDFA /* TRDTable.m */; };
+		A44367F718B75E740014CDFA /* TRDTableSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A44367F618B75E740014CDFA /* TRDTableSpec.m */; };
 		A455F81118B34242000B845F /* TRDApiKeySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A455F81018B34242000B845F /* TRDApiKeySpec.m */; };
 		A455F81C18B34913000B845F /* TRDDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A455F81B18B34913000B845F /* TRDDatabase.m */; };
 		A455F81E18B35347000B845F /* database_list.json in Resources */ = {isa = PBXBuildFile; fileRef = A455F81D18B35347000B845F /* database_list.json */; };
@@ -67,6 +69,9 @@
 		6F8829223D0C42D39263023C /* Pods-TreasureDataTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureDataTests.xcconfig"; path = "Pods/Pods-TreasureDataTests.xcconfig"; sourceTree = "<group>"; };
 		97327B302C06407986E6E65E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A44367F018B75BBD0014CDFA /* job_result.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = job_result.csv; sourceTree = "<group>"; };
+		A44367F318B75E140014CDFA /* TRDTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRDTable.h; sourceTree = "<group>"; };
+		A44367F418B75E140014CDFA /* TRDTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDTable.m; sourceTree = "<group>"; };
+		A44367F618B75E740014CDFA /* TRDTableSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDTableSpec.m; sourceTree = "<group>"; };
 		A455F81018B34242000B845F /* TRDApiKeySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDApiKeySpec.m; sourceTree = "<group>"; };
 		A455F81A18B34913000B845F /* TRDDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRDDatabase.h; sourceTree = "<group>"; };
 		A455F81B18B34913000B845F /* TRDDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDDatabase.m; sourceTree = "<group>"; };
@@ -133,6 +138,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A44367F218B75E030014CDFA /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				A44367F318B75E140014CDFA /* TRDTable.h */,
+				A44367F418B75E140014CDFA /* TRDTable.m */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
 		A455F81918B34913000B845F /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +165,7 @@
 				A466ABDE18B305F200FB89B8 /* TRDClient.m */,
 				A466AC4818B31CBA00FB89B8 /* Authenticate */,
 				A455F81918B34913000B845F /* Database */,
+				A44367F218B75E030014CDFA /* Table */,
 				CA4DE4CE18B62F0E001D1E9E /* Job */,
 			);
 			name = Classes;
@@ -240,6 +255,7 @@
 				A466AC4C18B3287E00FB89B8 /* TRDClientSpec.m */,
 				A455F81018B34242000B845F /* TRDApiKeySpec.m */,
 				CA4DE4D718B62F4C001D1E9E /* TRDDatabaseSpec.m */,
+				A44367F618B75E740014CDFA /* TRDTableSpec.m */,
 				CA4DE4D518B62F45001D1E9E /* TRDJobSpec.m */,
 				A4A4D1EC18B2FE230067FA70 /* Supporting Files */,
 			);
@@ -431,6 +447,7 @@
 				A466AC4B18B31D0B00FB89B8 /* TRDApiKey.m in Sources */,
 				A455F81C18B34913000B845F /* TRDDatabase.m in Sources */,
 				CA4DE4CA18B62EF2001D1E9E /* TRDClient+Authenticate.m in Sources */,
+				A44367F518B75E140014CDFA /* TRDTable.m in Sources */,
 				CA4DE4D418B62F0E001D1E9E /* TRDJob.m in Sources */,
 				CA4DE4CD18B62F01001D1E9E /* TRDClient+Database.m in Sources */,
 				A466ABDF18B305F200FB89B8 /* TRDClient.m in Sources */,
@@ -442,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A44367F718B75E740014CDFA /* TRDTableSpec.m in Sources */,
 				CA4DE4D818B62F4C001D1E9E /* TRDDatabaseSpec.m in Sources */,
 				A455F81118B34242000B845F /* TRDApiKeySpec.m in Sources */,
 				A466AC4D18B3287E00FB89B8 /* TRDClientSpec.m in Sources */,
