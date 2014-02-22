@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JobListViewController : UITableViewController
+@interface JobListViewController : UITableViewController <UISplitViewControllerDelegate>
 @property(strong) NSArray *jobs;
 @end

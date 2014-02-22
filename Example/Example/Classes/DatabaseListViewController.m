@@ -19,7 +19,6 @@
     [super viewDidLoad];
 
     @weakify(self);
-
     [RACObserve(self, databases) subscribeNext:^(id x) {
         @strongify(self);
         [self.tableView reloadData];
@@ -34,6 +33,11 @@
           [self showError:error];
       }
     ];
+}
+
+- (RACSignal *)fetchJobsWithDatabase:(TRDDatabase *)database
+{
+    return [[[TRDClientManager sharedManager].client fetchJobsWithDatabase:database.name] collect];
 }
 
 - (void)showError:(NSError *)error
@@ -66,18 +70,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TRDDatabase *database = self.databases[indexPath.row];
-
-    @weakify(self);
-    [[[[TRDClientManager sharedManager].client fetchJobsWithDatabase:database.name] collect]
-      subscribeNext:^(NSArray *jobs) {
-          @strongify(self)
-          [self performSegueWithIdentifier:@"ShowJobsInDatabase" sender:self];
-      } error:^(NSError *error) {
-          @strongify(self)
-          [self showError:error];
-      }
-    ];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        @weakify(self);
+        TRDDatabase *database = self.databases[indexPath.row];
+        [[self fetchJobsWithDatabase:database] subscribeNext:^(NSArray *jobs) {
+            @strongify(self)
+            JobListViewController *jobListViewController = [self.splitViewController.viewControllers lastObject];
+            jobListViewController.jobs = jobs;
+        }];
+    } else {
+        [self performSegueWithIdentifier:@"ShowJobsInDatabase" sender:self];
+    }
 }
 
 #pragma mark - Segue
@@ -85,13 +88,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     TRDDatabase *database = self.databases[self.tableView.indexPathForSelectedRow.row];
-
-    [[[[TRDClientManager sharedManager].client fetchJobsWithDatabase:database.name] collect]
-     subscribeNext:^(NSArray *jobs) {
-         JobListViewController *jobListViewController = segue.destinationViewController;
-         jobListViewController.jobs = jobs;
-         jobListViewController.navigationItem.title = database.name;
-     }];
+    [[self fetchJobsWithDatabase:database] subscribeNext:^(NSArray *jobs) {
+        JobListViewController *jobListViewController = segue.destinationViewController;
+        jobListViewController.jobs = jobs;
+        jobListViewController.navigationItem.title = database.name;
+    }];
 }
 
 @end

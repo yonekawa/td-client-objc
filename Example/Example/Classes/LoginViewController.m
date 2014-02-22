@@ -10,6 +10,7 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <TreasureData/TreasureData.h>
 #import <Mantle/EXTScope.h>
+#import "AppDelegate.h"
 #import "TRDClientManager.h"
 
 @interface LoginViewController ()
@@ -37,12 +38,14 @@
 
         [self.emailFiedld resignFirstResponder];
         [self.passwordFiedld resignFirstResponder];
+        self.loginButton.enabled = NO;
 
         RACSignal *signal = [loginSignal dematerialize];
         [signal subscribeNext:^(TRDClient *client) {
             [TRDClientManager sharedManager].client = client;
-            [self performSegueWithIdentifier:@"Login" sender:self];
+            [self loggedIn];
         } error:^(NSError *error) {
+            self.loginButton.enabled = YES;
             [[[UIAlertView alloc] initWithTitle:@"Error"
                                        message:error.description
                                       delegate:nil
@@ -51,6 +54,16 @@
         }];
     }];
     self.loginButton.rac_command = loginCommand;
+}
+
+- (void)loggedIn
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainScene"];
+    } else {
+        [self performSegueWithIdentifier:@"Login" sender:self];
+    }
 }
 
 @end

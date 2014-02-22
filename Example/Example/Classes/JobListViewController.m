@@ -17,6 +17,8 @@
 {
     [super viewDidLoad];
 
+    self.splitViewController.delegate = self;
+
     @weakify(self);
     [RACObserve(self, jobs) subscribeNext:^(id x) {
         @strongify(self);
@@ -38,6 +40,15 @@
                                                             forIndexPath:indexPath];
     cell.job = self.jobs[indexPath.row];
     return cell;
+}
+
+#pragma mark - UISplitViewController delegates
+
+- (BOOL)splitViewController:(UISplitViewController*)splitViewController
+   shouldHideViewController:(UIViewController *)viewController
+              inOrientation:(UIInterfaceOrientation)orientation
+{
+    return NO;
 }
 
 @end
