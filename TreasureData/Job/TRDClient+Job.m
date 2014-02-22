@@ -40,8 +40,9 @@
 {
     NSParameterAssert(jobID);
 
+    NSString *path = [NSString stringWithFormat:@"/v3/job/show/%lu", (unsigned long)jobID];
     NSURLRequest *request = [self requestWithMethod:@"GET"
-                                               path:[NSString stringWithFormat:@"/v3/job/show/%d", jobID]
+                                               path:path
                                          parameters:nil
                                      withAuthHeader:YES];
     return [self enqueueRequest:request parseResultBlock:^(id<RACSubscriber> subscriber, id responseObject) {
@@ -54,8 +55,9 @@
 {
     NSParameterAssert(jobID);
 
+    NSString *path = [NSString stringWithFormat:@"/v3/job/status/%lu", (unsigned long)jobID];
     NSURLRequest *request = [self requestWithMethod:@"GET"
-                                               path:[NSString stringWithFormat:@"/v3/job/status/%d", jobID]
+                                               path:path
                                          parameters:nil
                                      withAuthHeader:YES];
     return [self enqueueRequest:request parseResultBlock:^(id<RACSubscriber> subscriber, id responseObject) {
@@ -87,8 +89,9 @@
 {
     NSParameterAssert(jobID);
 
+    NSString *path = [NSString stringWithFormat:@"/v3/job/kill/%lu", (unsigned long)jobID];
     NSURLRequest *request = [self requestWithMethod:@"POST"
-                                               path:[NSString stringWithFormat:@"/v3/job/kill/%d", jobID]
+                                               path:path
                                          parameters:nil
                                      withAuthHeader:YES];
     return [self enqueueRequest:request parseResultBlock:nil];
@@ -116,8 +119,9 @@
             formatName = @"tsv";
             break;
     }
+    NSString *path = [NSString stringWithFormat:@"/v3/job/result/%lu", (unsigned long)jobID];
     NSURLRequest *request = [self requestWithMethod:@"GET"
-                                               path:[NSString stringWithFormat:@"/v3/job/result/%d", jobID]
+                                               path:path
                                          parameters:@{@"format": formatName}
                                      withAuthHeader:YES];
     return [self enqueueRequest:request serializer:[AFHTTPResponseSerializer serializer] parseResultBlock:nil];
