@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "TreasureData"
   s.version      = "0.1.0"
-  s.summary      = "Objective-C Client Library for Treasure Data."
+  s.summary      = "Treasure Data Client Library for Objective-C."
   s.homepage     = "https://github.com/yonekawa/td-client-objc"
   s.license      = "MIT"
   s.author       = { "Kenichi Yonekawa" => "tcgrim@gmail.com" }
-  s.source       = { :git => "https://github.com/yonekawa/td-client-objc.git" }
+  s.source       = { :git => "https://github.com/yonekawa/td-client-objc.git", :tag => s.version.to_s }
   s.source_files = 'TreasureData/**/*.{h,m}'
   s.requires_arc = true
 
