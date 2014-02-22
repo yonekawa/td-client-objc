@@ -81,7 +81,7 @@ static NSString *const TRDAuthorizationHeaderFormat = @"TD1 %@";
             [operation cancel];
 	}];
     }];
-    return [[signal replayLazily] setNameWithFormat:@"enqueuRequest"];
+    return [[signal replayLazily] setNameWithFormat:@"enqueueRequest"];
 }
 
 @end
