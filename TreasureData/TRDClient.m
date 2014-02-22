@@ -79,7 +79,7 @@ static NSString *const TRDAuthorizationHeaderFormat = @"TD1 %@";
 
         return [RACDisposable disposableWithBlock:^{
             [operation cancel];
-		}];
+	}];
     }];
     return [[signal replayLazily] setNameWithFormat:@"enqueuRequest"];
 }
