@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <TreasureData/TreasureData.h>
+#import <Mantle/EXTScope.h>
 #import "TRDClientManager.h"
 
 @interface LoginViewController ()
@@ -22,19 +23,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 
-    __weak typeof(self) wSelf = self;
+    @weakify(self)
+
     RACCommand *loginCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        return [[TRDClient authenticateWithUsername:wSelf.emailFiedld.text password:wSelf.passwordFiedld.text] materialize];
+        @strongify(self);
+        return [[TRDClient authenticateWithUsername:self.emailFiedld.text
+                                           password:self.passwordFiedld.text] materialize];
     }];
+
     [loginCommand.executionSignals subscribeNext:^(RACSignal *loginSignal) {
+        @strongify(self);
+
+        [self.emailFiedld resignFirstResponder];
+        [self.passwordFiedld resignFirstResponder];
+
         RACSignal *signal = [loginSignal dematerialize];
         [signal subscribeNext:^(TRDClient *client) {
             [TRDClientManager sharedManager].client = client;
-            UINavigationController *mainViewController =
-                [self.storyboard instantiateViewControllerWithIdentifier:@"MainScene"];
-            [self presentViewController:mainViewController animated:YES completion:nil];
+            [self performSegueWithIdentifier:@"Login" sender:self];
         } error:^(NSError *error) {
             [[[UIAlertView alloc] initWithTitle:@"Error"
                                        message:error.description

@@ -29,7 +29,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCQ-5d-xvE">
-                                <rect key="frame" x="20" y="237" width="280" height="22"/>
+                                <rect key="frame" x="20" y="237" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -44,60 +44,115 @@
                         <outlet property="emailFiedld" destination="L2v-Gt-qxv" id="wRc-CE-Aze"/>
                         <outlet property="loginButton" destination="tCQ-5d-xvE" id="VaI-vn-Tbr"/>
                         <outlet property="passwordFiedld" destination="rsP-cW-U8d" id="m2V-e5-q6z"/>
-                        <segue destination="rOH-Tl-g9y" kind="push" identifier="Login" id="LZa-bc-4O2"/>
+                        <segue destination="BtA-m2-vI2" kind="modal" identifier="Login" id="6dm-Z1-0XP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="68" y="-43"/>
+        </scene>
+        <!--Database List View Controller - database-->
+        <scene sceneID="DsE-kJ-Uxy">
+            <objects>
+                <tableViewController id="XiM-9Z-25Q" customClass="DatabaseListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hzS-Ec-5qO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Cv9-gZ-yXS">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cv9-gZ-yXS" id="Sd4-Dk-UVp">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XiM-9Z-25Q" id="eV2-ey-KLs"/>
+                            <outlet property="delegate" destination="XiM-9Z-25Q" id="fsw-It-Iji"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="database" id="jwO-ut-nPo"/>
+                    <connections>
+                        <segue destination="8Ee-fE-hmv" kind="push" identifier="ShowJobsInDatabase" id="fOR-UU-M6F"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gef-LP-nBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="-43"/>
+        </scene>
+        <!--Job List View Controller-->
+        <scene sceneID="MEk-Uk-mPc">
+            <objects>
+                <tableViewController storyboardIdentifier="JobScene" id="8Ee-fE-hmv" customClass="JobListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="qRb-c3-7sW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="JobListViewCell" rowHeight="54" id="vAp-TK-MDo" customClass="JobListViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="54"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vAp-TK-MDo" id="3RL-4K-niU">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="success" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzf-Sc-ybX">
+                                            <rect key="frame" x="20" y="14" width="56" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.45590608016304346" green="0.45590608016304346" blue="0.45590608016304346" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SELECT code ,COUNT( 1 ) AS COUNT FROM www_access GROUP BY code;" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="221" translatesAutoresizingMaskIntoConstraints="NO" id="o0n-h6-pBE">
+                                            <rect key="frame" x="84" y="1" width="221" height="52"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="queryLabel" destination="o0n-h6-pBE" id="VUS-VR-477"/>
+                                    <outlet property="statusLabel" destination="Mzf-Sc-ybX" id="efS-Ee-SjC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8Ee-fE-hmv" id="Zbs-iW-4vk"/>
+                            <outlet property="delegate" destination="8Ee-fE-hmv" id="Saq-Xy-ef0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="SJp-Et-gqK"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rHV-Yt-PFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1461" y="-43"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="CWh-ev-Lqv">
+        <scene sceneID="Uer-2c-wUA">
             <objects>
-                <navigationController storyboardIdentifier="MainScene" definesPresentationContext="YES" id="rOH-Tl-g9y" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="lql-7H-J0E"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VYj-pM-LRL">
+                <navigationController definesPresentationContext="YES" id="BtA-m2-vI2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gf4-sN-OQV">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="7Rc-SQ-FmI" kind="relationship" relationship="rootViewController" id="JPJ-HT-chc"/>
+                        <segue destination="XiM-9Z-25Q" kind="relationship" relationship="rootViewController" id="cAG-d0-Qsm"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Zj-vc-arb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YzD-XX-Zyn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="543" y="-35"/>
-        </scene>
-        <!--Database List View Controller-->
-        <scene sceneID="EkW-mV-jz8">
-            <objects>
-                <viewController storyboardIdentifier="DatabaseListViewScene" id="7Rc-SQ-FmI" customClass="DatabaseListViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ifR-eV-qOH"/>
-                        <viewControllerLayoutGuide type="bottom" id="hUx-QE-Req"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kbQ-LG-ihl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3v6-fn-OxS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="7Rc-SQ-FmI" id="x8d-JO-1TS"/>
-                                    <outlet property="delegate" destination="7Rc-SQ-FmI" id="URj-nf-Te0"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="TYb-Un-52q"/>
-                    <connections>
-                        <outlet property="databaseListView" destination="3v6-fn-OxS" id="Hna-rH-5HE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P0Z-Iu-gmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="936" y="-35"/>
+            <point key="canvasLocation" x="510" y="-43"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -24,6 +24,8 @@
 		A4785B4218B362C000B77BFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4785B3D18B362C000B77BFE /* Images.xcassets */; };
 		CA4DE4BA18B3A962001D1E9E /* DatabaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4B918B3A962001D1E9E /* DatabaseListViewController.m */; };
 		CA4DE4BD18B3AAC9001D1E9E /* TRDClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DE4BC18B3AAC9001D1E9E /* TRDClientManager.m */; };
+		CA63B77E18B78D4100A7383E /* JobListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA63B77D18B78D4100A7383E /* JobListViewController.m */; };
+		CA8C406618B840510064A0D4 /* JobListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8C406518B840510064A0D4 /* JobListViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,10 @@
 		CA4DE4B918B3A962001D1E9E /* DatabaseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseListViewController.m; sourceTree = "<group>"; };
 		CA4DE4BB18B3AAC9001D1E9E /* TRDClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRDClientManager.h; sourceTree = "<group>"; };
 		CA4DE4BC18B3AAC9001D1E9E /* TRDClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRDClientManager.m; sourceTree = "<group>"; };
+		CA63B77C18B78D4100A7383E /* JobListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobListViewController.h; sourceTree = "<group>"; };
+		CA63B77D18B78D4100A7383E /* JobListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobListViewController.m; sourceTree = "<group>"; };
+		CA8C406418B840510064A0D4 /* JobListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobListViewCell.h; sourceTree = "<group>"; };
+		CA8C406518B840510064A0D4 /* JobListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobListViewCell.m; sourceTree = "<group>"; };
 		EABCFA2301B247BCA0AEDC4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -170,6 +176,10 @@
 				A4785B3718B362C000B77BFE /* LoginViewController.m */,
 				CA4DE4B818B3A962001D1E9E /* DatabaseListViewController.h */,
 				CA4DE4B918B3A962001D1E9E /* DatabaseListViewController.m */,
+				CA63B77C18B78D4100A7383E /* JobListViewController.h */,
+				CA63B77D18B78D4100A7383E /* JobListViewController.m */,
+				CA8C406418B840510064A0D4 /* JobListViewCell.h */,
+				CA8C406518B840510064A0D4 /* JobListViewCell.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -318,7 +328,9 @@
 			files = (
 				A4785B3F18B362C000B77BFE /* LoginViewController.m in Sources */,
 				A4785B3E18B362C000B77BFE /* AppDelegate.m in Sources */,
+				CA63B77E18B78D4100A7383E /* JobListViewController.m in Sources */,
 				A466AC0E18B3189000FB89B8 /* main.m in Sources */,
+				CA8C406618B840510064A0D4 /* JobListViewCell.m in Sources */,
 				CA4DE4BA18B3A962001D1E9E /* DatabaseListViewController.m in Sources */,
 				CA4DE4BD18B3AAC9001D1E9E /* TRDClientManager.m in Sources */,
 			);

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DatabaseListViewController : UIViewController
-    <UITableViewDelegate, UITableViewDataSource>
-
+@interface DatabaseListViewController : UITableViewController
+@property(strong) NSArray *databases;
 @end
