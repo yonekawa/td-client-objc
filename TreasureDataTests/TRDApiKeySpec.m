@@ -23,4 +23,15 @@ it(@"should initialize", ^{
     expect(apiKey.value).to.equal(@"e72e16c7e42f292c6912e7710c838347ae178b4a");
 });
 
+describe(@"+apiKeyWithValue", ^{
+    beforeEach(^{
+        apiKey = [TRDApiKey apiKeyWithValue:@"e72e16c7e42f292c6912e7710c838347ae178b4a"];
+        expect(apiKey).notTo.beNil();
+    });
+    
+    it(@"should return initialized instance", ^{
+        expect(apiKey.value).to.equal(@"e72e16c7e42f292c6912e7710c838347ae178b4a");
+    });
+});
+
 SpecEnd

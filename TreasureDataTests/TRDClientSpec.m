@@ -61,8 +61,8 @@ describe(@"authenticate", ^{
 
 __block TRDClient *client = nil;
 void (^useMockClient)() = ^() {
-    TRDApiKey *key = [MTLJSONAdapter modelOfClass:[TRDApiKey class] fromJSONDictionary:@{@"apikey": @"e72e16c7e42f292c6912e7710c838347ae178b4a"} error:NULL];
-    client = [[TRDClient alloc] initWithApiKey:key];
+    TRDApiKey *apiKey = [TRDApiKey apiKeyWithValue:@"e72e16c7e42f292c6912e7710c838347ae178b4a"];
+    client = [[TRDClient alloc] initWithApiKey:apiKey];
 };
 
 describe(@"database", ^{

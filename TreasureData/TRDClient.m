@@ -20,12 +20,12 @@ static NSString *const TRDAuthorizationHeaderFormat = @"TD1 %@";
 
 @implementation TRDClient
 
-- (id)init
+- (instancetype)init
 {
     return [super initWithBaseURL:[NSURL URLWithString:TRDBaseURLString]];
 }
 
-- (id)initWithApiKey:(TRDApiKey *)apiKey
+- (instancetype)initWithApiKey:(TRDApiKey *)apiKey
 {
     self = [self init];
     if (self) {

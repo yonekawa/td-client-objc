@@ -19,7 +19,12 @@
     return @{@"value": @"apikey"};
 }
 
-- (id)initWithValue:(NSString *)value
++ (instancetype)apiKeyWithValue:(NSString *)value
+{
+    return [[[self class] alloc] initWithValue:value];
+}
+
+- (instancetype)initWithValue:(NSString *)value
 {
     self = [super init];
     if (self) {

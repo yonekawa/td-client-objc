@@ -12,7 +12,7 @@
 #import "TRDApiKey.h"
 
 @interface TRDClient : AFHTTPRequestOperationManager
-- (id)initWithApiKey:(TRDApiKey *)apiKey;
+- (instancetype)initWithApiKey:(TRDApiKey *)apiKey;
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                       path:(NSString *)path
                                 parameters:(NSDictionary *)parameters
