@@ -1,6 +1,6 @@
-# Treasure Data Client for Objective-C
+# Treasure Data REST API Client for Objective-C
 
-[![Build Status](https://travis-ci.org/yonekawa/td-client-objc.png?branch=master)](https://travis-ci.org/yonekawa/td-client-objc)
+[![Build Status](https://travis-ci.org/yonekawa/td-client-objc.png?branch=master)](https://travis-ci.org/yonekawa/td-client-objc) [![Gitter chat](https://badges.gitter.im/yonekawa/td-client-objc.png)](https://gitter.im/yonekawa/td-client-objc)
 
 Objective-C Client Library for [Treasure Data REST API](http://docs.treasuredata.com/articles/rest-api), built using [AFNetworking](https://github.com/AFNetworking/AFNetworking), [Mantle](https://github.com/MantleFramework/Mantle), and [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa).
 
